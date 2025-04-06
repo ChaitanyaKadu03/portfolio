@@ -25,6 +25,6 @@ jobs:
         with:
           bun-version: latest
       - name: Install dependencies
-        uses: bun install
+        run: bun install
       - name: Run linting and tests
-        uses: bun run lint && bun run test
+        run: bun run lint && bun run test
