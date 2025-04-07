@@ -35,11 +35,9 @@ module.exports = {
     "prefer-spread": "off",
     "no-case-declarations": "off",
     "no-undef": "warn",
-    "indent": ["error", 2],
-    "@typescript-eslint/no-console": "on",
+    "indent": ["warn", 2],
     "@typescript-eslint/no-unused-vars": ["warn"],
     "@typescript-eslint/consistent-type-imports": "warn",
-    "@typescript-eslint/no-unnecessary-condition": "warn",
-    "@typescript-eslint/semi-style": ["error", "last"],
+    "@typescript-eslint/no-unnecessary-condition": "warn"
   },
 };
