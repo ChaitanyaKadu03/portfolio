@@ -1,1 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 @import "tailwindcss";
+
+body {
+  background: #0e0e0e;
+}
+
+* {
+  font-family: 'DM Sans', sans-serif;
+}
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* H1 */
+.h1 {
+  @apply text-[48px] leading-[120%] tracking-[2%] font-bold text-neutral-50;
+  /* Default (Desktop) */
+}
+
+@media (max-width: 768px) {
+  .h1 {
+    @apply text-[36px] leading-[120%] tracking-[2%] font-bold text-neutral-50;
+    /* Tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .h1 {
+    @apply text-[28px] leading-[120%] tracking-[2%] font-bold text-neutral-50;
+    /* Mobile */
+  }
+}
+
+/* H2 */
+.h2 {
+  @apply text-[40px] leading-[130%] tracking-[1.5%] font-semibold text-neutral-100;
+}
+
+@media (max-width: 768px) {
+  .h2 {
+    @apply text-[32px] leading-[130%] tracking-[1.5%] font-semibold text-neutral-100;
+  }
+}
+
+@media (max-width: 480px) {
+  .h2 {
+    @apply text-[24px] leading-[130%] tracking-[1.5%] font-semibold text-neutral-100;
+  }
+}
+
+/* H3 */
+.h3 {
+  @apply text-[32px] leading-[130%] tracking-[1%] font-semibold text-neutral-200;
+}
+
+@media (max-width: 768px) {
+  .h3 {
+    @apply text-[28px] leading-[130%] tracking-[1%] font-semibold text-neutral-200;
+  }
+}
+
+@media (max-width: 480px) {
+  .h3 {
+    @apply text-[20px] leading-[130%] tracking-[1%] font-semibold text-neutral-200;
+  }
+}
+
+/* H4 */
+.h4 {
+  @apply text-[28px] leading-[140%] tracking-[1%] font-semibold text-neutral-300;
+}
+
+@media (max-width: 768px) {
+  .h4 {
+    @apply text-[24px] leading-[140%] tracking-[1%] font-semibold text-neutral-300;
+  }
+}
+
+@media (max-width: 480px) {
+  .h4 {
+    @apply text-[18px] leading-[140%] tracking-[1%] font-semibold text-neutral-300;
+  }
+}
+
+/* H5 */
+.h5 {
+  @apply text-[24px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300;
+}
+
+@media (max-width: 768px) {
+  .h5 {
+    @apply text-[20px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300;
+  }
+}
+
+@media (max-width: 480px) {
+  .h5 {
+    @apply text-[16px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300;
+  }
+}
+
+/* H6 */
+.h6 {
+  @apply text-[20px] leading-[150%] tracking-[0%] font-normal text-neutral-300;
+}
+
+@media (max-width: 768px) {
+  .h6 {
+    @apply text-[18px] leading-[150%] tracking-[0%] font-normal text-neutral-300;
+  }
+}
+
+@media (max-width: 480px) {
+  .h6 {
+    @apply text-[14px] leading-[150%] tracking-[0%] font-normal text-neutral-300;
+  }
+}
+
+/* Paragraph - 1 */
+.p1 {
+  @apply text-[18px] leading-[160%] tracking-[0%] font-normal text-neutral-300;
+}
+
+@media (max-width: 768px) {
+  .p1 {
+    @apply text-[16px] leading-[160%] tracking-[0%] font-normal text-neutral-300;
+  }
+}
+
+@media (max-width: 480px) {
+  .p1 {
+    @apply text-[14px] leading-[160%] tracking-[0%] font-normal text-neutral-300;
+  }
+}
+
+/* Paragraph - 2 */
+.p2 {
+  @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400;
+}
+
+@media (max-width: 768px) {
+  .p2 {
+    @apply text-[14px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400;
+  }
+}
+
+@media (max-width: 480px) {
+  .p2 {
+    @apply text-[12px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400;
+  }
+}
+
+/* Paragraph - 3 */
+.p3 {
+  @apply text-[14px] leading-[140%] tracking-[0.5%] font-light text-neutral-500;
+}
+
+@media (max-width: 768px) {
+  .p3 {
+    @apply text-[12px] leading-[140%] tracking-[0.5%] font-light text-neutral-500;
+  }
+}
+
+@media (max-width: 480px) {
+  .p3 {
+    @apply text-[10px] leading-[140%] tracking-[0.5%] font-light text-neutral-500;
+  }
+}
+
+/* Primary Button */
+.btn-primary {
+  @apply text-[18px] leading-[150%] tracking-[2%] font-normal;
+}
+
+@media (max-width: 768px) {
+  .btn-primary {
+    @apply text-[16px] leading-[150%] tracking-[2%] font-normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-primary {
+    @apply text-[14px] leading-[150%] tracking-[2%] font-normal;
+  }
+}
+
+/* Secondary Button */
+.btn-secondary {
+  @apply text-[16px] leading-[150%] tracking-[1.5%] font-medium;
+}
+
+@media (max-width: 768px) {
+  .btn-secondary {
+    @apply text-[14px] leading-[150%] tracking-[1.5%] font-medium;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-secondary {
+    @apply text-[12px] leading-[150%] tracking-[1.5%] font-medium;
+  }
+}
+
+.blue-gradient {
+  @apply bg-gradient-to-r from-[#b3ede4] to-[#004433] bg-clip-text text-transparent hover:from-[#e0f9f3] hover:to-[#006d66];
+}
+
+.btn-shadow {
+  @apply shadow-[0_4px_8px_rgba(174,174,173,0.1)] hover:shadow-[0_4px_12px_rgba(174,174,173,0.2)] 
+}
+
+/* @theme {
+  --shadow-3xl: 0 4px 24px rgba(0, 0, 0, 0.25); 
+} */
