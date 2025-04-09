@@ -25,6 +25,6 @@
       "@data/*": ["./data/*"]
     }
   },
-  "files": ["./.eslintrc.cjs"],
+  "files": [".eslintrc.cjs"],
   "include": ["src", "./*.d.ts", "./*.config.ts"]
 }
