@@ -1,65 +1,96 @@
-# Qwik City App ⚡️
+# Personal Portfolio Website
 
-- [Qwik Docs](https://qwik.dev/)
-- [Discord](https://qwik.dev/chat)
-- [Qwik GitHub](https://github.com/QwikDev/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+Welcome to the Personal Portfolio Website repository! This project is a cutting-edge, developer-focused portfolio designed to showcase the best of modern web development. Crafted to reflect the multifaceted journey of a programmer, it delivers an exceptional user experience, leverages blazing performance optimizations, and features a clean, intuitive UI.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Configuration](#configuration)
+- [Getting Started](#getting-started)
+- [Performance and Deployment](#performance-and-deployment)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ---
 
-## Project Structure
+## Overview
 
-This project is using Qwik with [QwikCity](https://qwik.dev/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
+This repository contains the codebase for a personal portfolio website, showcasing a programmer’s journey—projects, skills, and achievements. Built with [Qwik](https://qwik.builder.io/) and TypeScript, the website is structured for modularity and reusability. The entire content is driven by an external `info.yml` file, allowing any developer to easily customize and deploy their own portfolio.
 
-Inside your project, you'll see the following directory structure:
+---
 
-```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
-```
+## Features
 
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.dev/qwikcity/routing/overview/) for more info.
+- **High Performance:** Developed using Qwik to ensure minimal loading times and rapid interactivity.
+- **Responsive Design:** Optimized for all device sizes with a focus on exceptional UI experience.
+- **Data-Driven Architecture:** All dynamic content is managed via a single `info.yml` file.
+- **Scalable and Modular:** Built with modern development practices that ease future enhancements.
+- **AWS CDN Deployment:** Ensures global content delivery with optimal load times and high availability.
 
-- `src/components`: Recommended directory for components.
+---
 
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
+## Technology Stack
 
-## Add Integrations and deployment
+- **Framework:** [Qwik](https://qwik.builder.io/)
+- **Language:** TypeScript
+- **Styling:** TailwindCSS
+- **Data Management:** YAML configuration through `info.yml`
+- **Deployment:** AWS Content Delivery Network (CDN)
 
-Use the `bun qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.dev/qwikcity/guides/static-site-generation/).
+---
 
-```shell
-bun qwik add # or `bun qwik add`
-```
+## Configuration
 
-## Development
+The website's content and structure are dynamically generated using the `info.yml` file. This modular approach means that developers can adapt this portfolio to fit their personal narrative without altering the underlying codebase.
 
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
+---
 
-```shell
-npm start # or `bun start`
-```
+## Performance and Deployment
 
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
+This project emphasizes exceptional performance and efficient content delivery:
 
-## Preview
+- **Optimized for Speed:**  
+  Qwik’s innovative architecture allows for fine-grained lazy loading and rapid initial rendering.
 
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
+- **Global Delivery:**  
+  Deployment over AWS CDN means content is served from edge locations worldwide, reducing latency.
 
-```shell
-bun preview # or `bun preview`
-```
+- **Modern Build Practices:**  
+  Utilizes code-splitting, minification, and tree shaking, ensuring that only necessary code is delivered to the client.
 
-## Production
+For deployment, follow your AWS CDN deployment process to ensure that build artifacts are optimized and globally accessible.
 
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
+## Getting Started
 
-```shell
-bun build # or `bun build`
-```
+### Prerequisites
+
+- **Node.js** (version 14 or above)
+- **npm** or **yarn** package manager
+
+### Installation
+
+1. **Clone the Repository**
+  ```
+  git clone https://github.com/yourusername/portfolio-website.git
+  cd portfolio-website
+  ```
+
+2. **Install Dependencies**
+  ```
+  npm install
+  ```
+
+3. **Configure Your Data**
+  ```
+  Update the info.yml file with your personal and project information.
+  ```
+
+4. **Run Locally**
+  ```
+  npm run dev
+  ```
+
+Visit http://localhost:3000 in your browser to view your live site.
