@@ -17,7 +17,12 @@
     "outDir": "tmp",
     "noEmit": true,
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@public/*": ["./src/public/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@media/*": ["./src/media/*"],
+      "@data/*": ["./data/*"]
     }
   },
   "files": ["./.eslintrc.cjs"],
