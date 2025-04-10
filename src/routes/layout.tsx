@@ -28,7 +28,7 @@ export default component$(() => {
       <main>
         <Slot />
       </main>
-      <Footer text="Let's Connect" link=""/>
+      <Footer />
     </>
   );
 });

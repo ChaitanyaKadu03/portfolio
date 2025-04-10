@@ -3,7 +3,7 @@ const Button = ({ text, link, isPrimary }: { text: string, link: string, isPrima
     <a
       class={
         isPrimary ?
-          `border-[0.4px] border-neutral-600 rounded-full px-4 py-2 btn-primary blue-gradient cursor-pointer btn-shadow`
+          `border-[0.4px] border-neutral-600 rounded-md px-4 py-2 btn-primary blue-gradient cursor-pointer btn-shadow`
           :
           ``
       }

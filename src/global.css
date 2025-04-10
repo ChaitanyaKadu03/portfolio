@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap');
 @import "tailwindcss";
 
 body {
   background: #0e0e0e;
-}
-
-* {
   font-family: 'DM Sans', sans-serif;
+  cursor: context-menu;
 }
 
 ul,
@@ -72,103 +73,103 @@ li {
 
 /* H4 */
 .h4 {
-  @apply text-[28px] leading-[140%] tracking-[1%] font-semibold text-neutral-300;
+  @apply text-[28px] leading-[140%] tracking-[1%] font-semibold text-neutral-300 hover:text-neutral-200 transition delay-75;
 }
 
 @media (max-width: 768px) {
   .h4 {
-    @apply text-[24px] leading-[140%] tracking-[1%] font-semibold text-neutral-300;
+    @apply text-[24px] leading-[140%] tracking-[1%] font-semibold text-neutral-300 hover:text-neutral-200 transition delay-75;
   }
 }
 
 @media (max-width: 480px) {
   .h4 {
-    @apply text-[18px] leading-[140%] tracking-[1%] font-semibold text-neutral-300;
+    @apply text-[18px] leading-[140%] tracking-[1%] font-semibold text-neutral-300 hover:text-neutral-200 transition delay-75;
   }
 }
 
 /* H5 */
 .h5 {
-  @apply text-[24px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300;
+  @apply text-[24px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300 hover:text-neutral-200 transition delay-75;
 }
 
 @media (max-width: 768px) {
   .h5 {
-    @apply text-[20px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300;
+    @apply text-[20px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300 hover:text-neutral-200 transition delay-75;
   }
 }
 
 @media (max-width: 480px) {
   .h5 {
-    @apply text-[16px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300;
+    @apply text-[16px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300 hover:text-neutral-200 transition delay-75;
   }
 }
 
 /* H6 */
 .h6 {
-  @apply text-[20px] leading-[150%] tracking-[0%] font-normal text-neutral-300;
+  @apply text-[20px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
 }
 
 @media (max-width: 768px) {
   .h6 {
-    @apply text-[18px] leading-[150%] tracking-[0%] font-normal text-neutral-300;
+    @apply text-[18px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
   }
 }
 
 @media (max-width: 480px) {
   .h6 {
-    @apply text-[14px] leading-[150%] tracking-[0%] font-normal text-neutral-300;
+    @apply text-[14px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
   }
 }
 
 /* Paragraph - 1 */
 .p1 {
-  @apply text-[18px] leading-[160%] tracking-[0%] font-normal text-neutral-300;
+  @apply text-[18px] leading-[160%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
 }
 
 @media (max-width: 768px) {
   .p1 {
-    @apply text-[16px] leading-[160%] tracking-[0%] font-normal text-neutral-300;
+    @apply text-[16px] leading-[160%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
   }
 }
 
 @media (max-width: 480px) {
   .p1 {
-    @apply text-[14px] leading-[160%] tracking-[0%] font-normal text-neutral-300;
+    @apply text-[14px] leading-[160%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
   }
 }
 
 /* Paragraph - 2 */
 .p2 {
-  @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400;
+  @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400 hover:text-neutral-300 transition delay-75;
 }
 
 @media (max-width: 768px) {
   .p2 {
-    @apply text-[14px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400;
+    @apply text-[14px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400 hover:text-neutral-300 transition delay-75;
   }
 }
 
 @media (max-width: 480px) {
   .p2 {
-    @apply text-[12px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400;
+    @apply text-[12px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400 hover:text-neutral-300 transition delay-75;
   }
 }
 
 /* Paragraph - 3 */
 .p3 {
-  @apply text-[14px] leading-[140%] tracking-[0.5%] font-light text-neutral-500;
+  @apply text-[14px] leading-[140%] tracking-[0.5%] font-light text-neutral-500 hover:text-neutral-400 transition delay-75;
 }
 
 @media (max-width: 768px) {
   .p3 {
-    @apply text-[12px] leading-[140%] tracking-[0.5%] font-light text-neutral-500;
+    @apply text-[12px] leading-[140%] tracking-[0.5%] font-light text-neutral-500 hover:text-neutral-400 transition delay-75;
   }
 }
 
 @media (max-width: 480px) {
   .p3 {
-    @apply text-[10px] leading-[140%] tracking-[0.5%] font-light text-neutral-500;
+    @apply text-[10px] leading-[140%] tracking-[0.5%] font-light text-neutral-500 hover:text-neutral-400 transition delay-75;
   }
 }
 
@@ -217,3 +218,15 @@ li {
 /* @theme {
   --shadow-3xl: 0 4px 24px rgba(0, 0, 0, 0.25); 
 } */
+ 
+.title-bg {
+  font-size: 160px;
+  text-align: center;
+  white-space: nowrap;
+  color: #7b7b7b;
+  opacity: 0.06;
+  font-weight: 800;
+  letter-spacing: -4px;
+  line-height: 100%;
+  font-family: "Commissioner", sans-serif;
+}
