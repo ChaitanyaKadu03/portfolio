@@ -4,7 +4,7 @@ import userInfo from "@data/export-data"
 export default component$(() => {
   return (
     <section
-      class="grid grid-cols-3 my-[120px]"
+      class="grid grid-cols-3 py-[120px] dot-bg"
     >
       <div
         class="flex justify-center"

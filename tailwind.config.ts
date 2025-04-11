@@ -11,6 +11,7 @@ export default {
       fontFamily: {
         jost: ['Jost', 'sans-serif'],
         gochiHand: ['Gochi Hand', 'sans-serif'],
+        mono: ['"Source Code Pro"', "monospace"]
       },
       colors: {
         "neutral": {
