@@ -7,6 +7,9 @@
 # Personal Images
 /src/media
 
+# Personal Data
+data/info.yml
+
 # Development
 node_modules
 .env
