@@ -4,6 +4,9 @@ export default {
     '/src/**/*.{js,ts,jsx,tsx,html}'
   ],
   theme: {
+    safelist: [
+      { pattern: /bg-\[url\(.+\)\]/ },
+    ],
     extend: {
       fontFamily: {
         jost: ['Jost', 'sans-serif'],

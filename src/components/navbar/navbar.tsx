@@ -5,8 +5,7 @@ import userInfo from "@data/export-data"
 
 export default component$(() => {
   return (
-    <nav class="flex items-center justify-between rounded-md p-2 min-w-[960px] max-w-fit mx-auto border-[0.6px] border-neutral-800 bg-[#30303044] fixed top-[24px] left-1/2 -translate-x-1/2 z-50"
-    >
+    <nav class="flex items-center justify-between rounded-md p-2 min-w-[960px] max-w-fit mx-auto border-[0.6px] border-neutral-800 bg-[#0f0f0fdf] fixed top-[24px] left-1/2 -translate-x-1/2 z-50 backdrop-blur">
       <ul class="flex flex-row items-center gap-4">
         <li>
           <img

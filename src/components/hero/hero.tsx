@@ -26,7 +26,7 @@ export default component$(() => {
         class="h-[400px] w-[400px] bg-[#00b199] absolute top-[-200px] left-[-200px] blur-3xl opacity-[0.1] -z-50"
       />
       <span
-        class="h-[400px] w-[400px] bg-[#00b199] absolute bottom-[-200px] right-[-200px] blur-3xl opacity-[0.1] -z-50"
+        class="h-[400px] w-[400px] bg-[#00b199] absolute top-[-200px] right-[-200px] blur-3xl opacity-[0.1] -z-50"
       />
     </section>
   )
