@@ -6,7 +6,7 @@ import GithubImg from "@media/Icons/github.svg";
 export default component$(() => {
   return (
     <section
-      class="w-[100vw] h-[100vh] flex flex-col justify-center items-center text-center gap-2"
+      class="h-[100vh] flex flex-col justify-center items-center text-center gap-2"
     >
       <h6
         class="h6"

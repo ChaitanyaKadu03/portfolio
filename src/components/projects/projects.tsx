@@ -5,7 +5,7 @@ import GithubImg from "@media/Icons/github.svg";
 
 export default component$(() => {
   return (
-    <section class="w-[100vw] flex justify-center relative">
+    <section class="flex justify-center relative">
       <section class="grid grid-cols-2 gap-2 border-[0.2px] border-neutral-800 bg-[#2222221b] rounded-md p-2 w-[1024px] my-[160px]">
         <div class="flex flex-col gap-2 border-[0.2px] border-neutral-800 bg-[#2222221b] rounded-md p-2">
           <h4 class="h5">

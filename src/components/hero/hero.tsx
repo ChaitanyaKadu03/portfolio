@@ -3,7 +3,7 @@ import userInfo from "@data/export-data"
 
 export default component$(() => {
   return (
-    <section class="relative w-[100vw] h-[100vh] overflow-hidden flex flex-col items-center justify-center">
+    <section class="relative h-[100vh] overflow-hidden flex flex-col items-center justify-center">
       <h6
         class="font-[Gochi Hand] text-[20px] font-medium tracking-[0px] bg-gradient-to-r from-neutral-300 from-10% via-neutral-400 via-50% to-neutral-500 to-95% bg-clip-text text-transparent relative top-[16px] select-none"
       >
