@@ -23,9 +23,12 @@ export default component$(() => {
       </div>
       <div class="grid grid-cols-3 gap-2  p-2 w-[1024px] bg-[#0c0c0c] rounded-md shadow-2xl shadow-neutral-800 relative left-1/2 -translate-x-1/2 box-border">
         {
-          Object.keys(userInfo["data-set"].ui.technologies.data[currentTech.value]).map((val: any) => {
+          Object.keys(userInfo["data-set"].ui.technologies.data[currentTech.value]).map((val: any, i: number) => {
             return (
-              <div class="flex flex-col gap-2 items-center justify-center text-center bg-no-repeat bg-contain bg-center h-full w-fit border-[0.2px] border-neutral-800 rounded-md bg-[#22222240] py-12 px-8 overflow-hidden">
+              <div
+                class="flex flex-col gap-2 items-center justify-center text-center bg-no-repeat bg-contain bg-center h-full w-fit border-[0.2px] border-neutral-800 rounded-md bg-[#22222240] py-12 px-8 overflow-hidden box-jump"
+                style={{ animationDelay: `${i * 1}s` }}
+              >
                 <h6 class="p1">
                   {val}
                 </h6>

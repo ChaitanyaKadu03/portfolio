@@ -7,8 +7,8 @@
 
 body {
   background: #0e0e0e;
-  background-image: radial-gradient(hsl(0, 0%, 16.08%, 1.00) 5%, transparent 0);
-  background-size: 30px 30px;
+  /* background-image: radial-gradient(hsl(0, 0%, 16.08%, 1.00) 5%, transparent 0);
+  background-size: 30px 30px; */
   font-family: 'DM Sans', sans-serif;
   cursor: context-menu;
 }
@@ -155,7 +155,24 @@ li {
 
 @media (max-width: 480px) {
   .p2 {
-    @apply text-[12px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400 hover:text-neutral-300 transition delay-75;
+    @apply text-[12px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
+  }
+}
+
+/* Paragraph - 2 nav */
+.p2-nav {
+  @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
+}
+
+@media (max-width: 768px) {
+  .p2-nav {
+    @apply text-[14px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
+  }
+}
+
+@media (max-width: 480px) {
+  .p2-nav {
+    @apply text-[12px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
   }
 }
 
@@ -215,13 +232,13 @@ li {
 }
 
 .btn-shadow {
-  @apply shadow-[0_4px_8px_rgba(174,174,173,0.1)] hover:shadow-[0_4px_12px_rgba(174,174,173,0.2)] 
+  @apply shadow-[0_4px_8px_rgba(174,174,173,0.1)] hover:shadow-[0_4px_12px_rgba(174,174,173,0.2)]
 }
 
 /* @theme {
   --shadow-3xl: 0 4px 24px rgba(0, 0, 0, 0.25); 
 } */
- 
+
 .title-bg {
   font-size: 160px;
   text-align: center;
@@ -235,21 +252,21 @@ li {
 }
 
 .box-border {
-	border: 0.3px solid;
-	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
-	animation: borderRotate var(--d) linear infinite forwards;
+  border: 0.3px solid;
+  border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+  animation: borderRotate var(--d) linear infinite forwards;
 }
 
 .box:hover {
   border: 0.3px solid;
-	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
-	animation: borderRotate var(--d) linear infinite forwards;
+  border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+  animation: borderRotate var(--d) linear infinite forwards;
 }
 
 @keyframes borderRotate {
-	100% {
-		--angle: 240deg;
-	}
+  100% {
+    --angle: 240deg;
+  }
 }
 
 @property --angle {
@@ -271,10 +288,34 @@ li {
 }
 
 :root {
-	--d: 4000ms;
-	--angle: -90deg;
-	--gradX: 100%;
-	--gradY: 50%;
-	--c1: #00594d;
-	--c2: #0c0c0c00;
+  --d: 6000ms;
+  --angle: -90deg;
+  --gradX: 100%;
+  --gradY: 50%;
+  --c1: #00594d;
+  --c2: #0c0c0c00;
+}
+
+.box-jump {
+  position: relative;
+  animation: moveRight 6s ease-in-out infinite;
+}
+
+@keyframes moveRight {
+  0% {
+    background: #22222240;
+    top: 0;
+  }
+  10% {
+    background: #2222221d;
+    top: -2px;
+  }
+  20%{
+    background: #22222240;
+    top: 0;
+  }
+  100% {
+    background: #22222240;
+    top: 0;
+  }
 }
