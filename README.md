@@ -68,7 +68,7 @@ For deployment, follow your AWS CDN deployment process to ensure that build arti
 ### Prerequisites
 
 - **Node.js** (version 14 or above)
-- **npm** or **yarn** package manager
+- **npm** or **bun** package manager
 
 ### Installation
 
@@ -90,7 +90,13 @@ For deployment, follow your AWS CDN deployment process to ensure that build arti
 
 4. **Run Locally**
   ```
-  npm run dev
+  bun dev
   ```
 
 Visit http://localhost:3000 in your browser to view your live site.
+
+## Static Site Generator (Node.js)
+
+```shell
+bun build.server
+```
