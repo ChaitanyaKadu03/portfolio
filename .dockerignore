@@ -11,3 +11,5 @@ package-lock.json
 .vscode/*
 !.vscode/launch.json
 !.vscode/*.code-snippets
+
+.github
