@@ -1,5 +1,5 @@
 import {component$} from "@builder.io/qwik";
-import Blogs from "@components/blogs/blogs";
+import Blogs from "~/components/blogs/blogs";
 
 export default component$(()=>{
   return (

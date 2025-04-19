@@ -5,8 +5,6 @@
 node_modules
 *.local
 
-package-lock.json
-
 # Editor
 .vscode/*
 !.vscode/launch.json

@@ -1,13 +1,13 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
-import Hero from "@components/hero/hero"
+import Hero from "~/components/hero/hero"
 import About from "~/components/about/about"
-import Technologies from "@components/technologies/technologies";
-import Experience from "@components/experience/experience";
-import Projects from "@components/projects/projects";
-import OpenSource from "@components/open-source/open-source";
-import Blogs from "@components/blogs/blogs";
+import Technologies from "~/components/technologies/technologies";
+import Experience from "~/components/experience/experience";
+import Projects from "~/components/projects/projects";
+import OpenSource from "~/components/open-source/open-source";
+import Blogs from "~/components/blogs/blogs";
 import Navigator from "~/components/navigator/navigator";
 
 export default component$(() => {

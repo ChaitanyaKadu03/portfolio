@@ -125,6 +125,23 @@ li {
   }
 }
 
+/* H6 Title */
+.h6-title {
+  @apply text-[20px] leading-[150%] tracking-[0%] font-normal transition delay-75;
+}
+
+@media (max-width: 768px) {
+  .h6-title {
+    @apply text-[18px] leading-[150%] tracking-[0%] font-normal transition delay-75;
+  }
+}
+
+@media (max-width: 480px) {
+  .h6-title {
+    @apply text-[14px] leading-[150%] tracking-[0%] font-normal transition delay-75;
+  }
+}
+
 /* Paragraph - 1 */
 .p1 {
   @apply text-[18px] leading-[160%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
