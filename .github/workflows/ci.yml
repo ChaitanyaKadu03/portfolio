@@ -29,4 +29,4 @@ jobs:
       - name: Run linting
         run: bun run lint
       - name: Run tests
-        run: bun run test.developement
+        run: bun run test.development
