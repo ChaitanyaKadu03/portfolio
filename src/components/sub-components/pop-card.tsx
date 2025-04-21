@@ -1,4 +1,4 @@
-import { component$, Signal, Resource } from "@builder.io/qwik";
+import { component$, type Signal, Resource } from "@builder.io/qwik";
 import { Link } from '@builder.io/qwik-city';
 import crossIcon from "@media/Icons/cross.svg";
 import GithubIcon from "@media/Icons/github.svg";
@@ -12,8 +12,7 @@ export default component$(({ userInfo, showContact, title, data, mode }: { showC
   return (
     <Resource
       value={userInfo}
-      onPending={() => <p>...Loading</p>}
-      onResolved={(userInfo: any) => (
+      onResolved={() => (
         <>
           <section class="fixed top-1/2 left-1/2 -translate-1/2 z-50 flex flex-col gap-4 items-center justify-center bg-[#181818] bg-opacity-50 transition-opacity w-fit h-fit py-8 px-12 rounded-md shadow-lg shadow-[#1818185e]">
             <div class="w-full flex items-center justify-between gap-4">

@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . .
 
+ENV MODE=production
+
 RUN npm run build
 RUN npm run build.server
 

@@ -1,4 +1,4 @@
-import { component$, Resource, Signal, useStore } from "@builder.io/qwik"
+import { component$, Resource, type Signal, useStore } from "@builder.io/qwik"
 
 export enum Mode {
   Experience,
@@ -11,18 +11,16 @@ export default component$(({ userInfo, currOption, mode }: { userInfo: any, curr
   return (
     <Resource
       value={userInfo}
-      onPending={() => <p>...Loading</p>}
       onResolved={(userInfo: any) => {
         switch (mode) {
-          case Mode.Experience:
-            userData = userInfo["data-set"].ui.experience.data;
-            break;
-          case Mode.Tech:
-            userData = userInfo["data-set"].ui.technologies.data;
-            break;
-            default:
-            userData = userInfo;
-
+        case Mode.Experience:
+          userData = userInfo["data-set"].ui.experience.data;
+          break;
+        case Mode.Tech:
+          userData = userInfo["data-set"].ui.technologies.data;
+          break;
+        default:
+          userData = userInfo;
         }
         return (
           <select
@@ -41,6 +39,7 @@ export default component$(({ userInfo, currOption, mode }: { userInfo: any, curr
                   <option
                     value={i}
                     defaultSelected={i === currOption.value ? true : false}
+                    key={i}
                   >
                     {info}
                   </option>

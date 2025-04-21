@@ -1,10 +1,10 @@
-import {component$} from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import OpenSource from "~/components/open-source/open-source";
 
-export default component$(()=>{
+export default component$(() => {
   return (
     <>
-    <OpenSource/>
+      <OpenSource />
     </>
   )
 })

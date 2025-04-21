@@ -1,4 +1,4 @@
-import { component$, JSXOutput, Resource, useId } from "@builder.io/qwik";
+import { component$, JSXOutput, Resource, Slot } from "@builder.io/qwik";
 import useUserInfo from "@hooks/userInfo";
 
 export default component$(() => {
@@ -7,65 +7,80 @@ export default component$(() => {
   return (
     <Resource
       value={userInfo}
-      onPending={() => <p>...Loading</p>}
-      onResolved={(userInfo: any) => (
-        <section class="dot-bg">
-          <div class="flex flex-col py-[80px] gap-2 text-white w-[800px] relative left-1/2 -translate-x-1/2">
-            {Object.keys(userInfo["data-set"].resume).map((info) => {
-              return (
-                <DataInputParser input={info} data={userInfo["data-set"].resume} counter={0} />
-              )
-            })}
-          </div>
-        </section>
-      )}
+      onResolved={(userInfo: any) => {
+        const resumeInfo: any = userInfo["data-set"].resume;
+        return (
+          <section class="">
+            <div class="flex flex-col my-20 gap-2 text-white w-[800px] relative left-1/2 -translate-x-1/2 max-lg:my-12 max-lg:w-[92vw] max-md:my-6">
+              {Object.keys(resumeInfo).map((info: any, i: number) => {
+                return (
+                  <DataInputParser input={info} data={resumeInfo} counter={0} key={i} />
+                )
+              })}
+            </div>
+          </section>
+        )
+      }}
     />
   )
 })
 
 const DataInputParser = component$(({ input, data, counter }: { input: any, data: any, counter: number }): JSXOutput => {
-  if (counter > 100) {
+  if (counter > 4) {
+    // Prevent infinite loop
     return (<></>);
   } else if (typeof data[input] === "string") {
     const space = " ".repeat(counter * 2);
     return (
       counter > 0 ?
-        <p class="font-mono text-xl">
+        <ResultText >
           <span class="whitespace-pre">{space}</span>{data[input]}
-        </p>
+        </ResultText>
         :
-        <p class="font-mono text-xl">
+        <ResultText >
           <span class="whitespace-pre">{space}</span>{input}: {data[input]}
-        </p>
+        </ResultText>
     )
   } else if (Array.isArray(data[input])) {
-    const newCounter = counter + 1;
-    const space = " ".repeat(newCounter * 2);
+    const { space, newCounter } = getSpace(counter);
     return (
       <>
         {
           data[input].map((info: any) => {
             return (
-              <p class="font-mono text-xl">
+              <ResultText >
                 <span class="whitespace-pre">{space}</span>* {info}
-              </p>
+              </ResultText>
             );
           })
         }
       </>
     )
   } else {
-    const space = " ".repeat(counter * 2);
-    const newCounter = counter + 1;
+    const { space, newCounter } = getSpace(counter);
     return (
       <>
-        <p class="font-mono text-xl">
+        <ResultText >
           <span class="whitespace-pre">{space}</span>{input}:
-        </p>
-        {Object.keys(data[input]).map((info: any) => {
-          return <DataInputParser input={info} data={data[input]} counter={newCounter} />;
+        </ResultText>
+        {Object.keys(data[input]).map((info: any, i: number) => {
+          return <DataInputParser input={info} data={data[input]} counter={newCounter} key={i} />;
         })}
       </>
     )
   }
+})
+
+const getSpace = (counter: number): { space: string, newCounter: number } => {
+  const space = " ".repeat(counter * 2);
+  const newCounter = counter + 1;
+  return { space, newCounter };
+}
+
+const ResultText = component$(() => {
+  return (
+    <p class="font-mono text-[16px] leading-[150%] tracking-[0%] text-neutral-300 w-[100%] overflow-hidden max-lg:text-[18px] max-md:text-[12px]">
+      <Slot />
+    </p>
+  )
 })

@@ -10,4 +10,6 @@ node_modules
 !.vscode/launch.json
 !.vscode/*.code-snippets
 
+package-lock.json
+
 .github

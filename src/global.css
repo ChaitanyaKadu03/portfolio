@@ -125,6 +125,23 @@ li {
   }
 }
 
+/* H6 Navbar */
+.h6-nav {
+  @apply text-[20px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
+}
+
+@media (max-width: 768px) {
+  .h6-nav {
+    @apply text-[18px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+}
+
+@media (max-width: 480px) {
+  .h6-nav {
+    @apply text-[18px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+}
+
 /* H6 Title */
 .h6-title {
   @apply text-[20px] leading-[150%] tracking-[0%] font-normal transition delay-75;
@@ -183,13 +200,13 @@ li {
 
 @media (max-width: 768px) {
   .p2-nav {
-    @apply text-[14px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
+    @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
   }
 }
 
 @media (max-width: 480px) {
   .p2-nav {
-    @apply text-[12px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
+    @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
   }
 }
 
@@ -257,7 +274,7 @@ li {
 } */
 
 .title-bg {
-  font-size: 160px;
+  font-size: 11vw;
   text-align: center;
   white-space: nowrap;
   color: #7b7b7b;
@@ -266,6 +283,12 @@ li {
   letter-spacing: -4px;
   line-height: 100%;
   font-family: "Commissioner", sans-serif;
+}
+
+@media (min-width: 1560px) {
+  .title-bg {
+    font-size: 180px;
+  }
 }
 
 .box-border {
@@ -334,5 +357,36 @@ li {
   100% {
     background: #22222240;
     top: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dot-bg:before {
+    --size: 64px;
+    --line: #45454552;
+    content: '';
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background: linear-gradient(
+          90deg,
+          var(--line) 1px,
+          transparent 1px var(--size)
+        )
+        50% 50% / var(--size) var(--size),
+      linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+        var(--size) var(--size);
+    mask: linear-gradient(-20deg, transparent 40%, white);
+    top: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: -50;
+  }
+}
+
+@media (max-width: 640px) {
+  .dot-bg:before {
+    --size: 48px;
+    mask: linear-gradient(-20deg, transparent 20%, white);
   }
 }

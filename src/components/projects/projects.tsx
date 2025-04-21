@@ -1,69 +1,113 @@
-import { component$, Resource, Signal, useSignal } from "@builder.io/qwik";
+import { component$, Resource, type Signal, useSignal } from "@builder.io/qwik";
 import useUserInfo from "@hooks/userInfo";
-import LinkImg from "@media/Icons/link.svg";
-import GithubImg from "@media/Icons/github.svg";
+import { linkIcon, githubIcon, arrowIcon } from "@media/media";
 
 export default component$(() => {
   const userInfo: any = useUserInfo();
   const currOption: Signal<number> = useSignal<number>(0);
+  const imgOption: Signal<number> = useSignal<number>(1); // The projects images silder, range 1 to 3
 
   return (
     <Resource
       value={userInfo}
-      onPending={() => <p>...Loading</p>}
-      onResolved={(userInfo: any) => (
-        <>
-          <section class="flex flex-col gap-6 items-center relative my-[160px]">
-            <section class="grid grid-cols-2 gap-2 border-[0.2px] border-neutral-800 bg-[#22222235] rounded-md p-2 w-[1024px] h-[480px] box-border">
-              <div class="flex flex-col gap-2 border-[0.2px] border-neutral-800 bg-[#2222221b] rounded-md p-2">
+      onResolved={(userInfo: any) => {
+        const projectsInfo: any = userInfo["data-set"].ui.projects.data;
+
+        return (
+          <section class="flex flex-col gap-6 items-center relative my-[160px] max-sm:gap-4 max-sm:my-12">
+
+            <section class="grid grid-cols-2 gap-2 border-[0.2px] border-neutral-800 bg-[#22222235] rounded-md p-2 min-lg:min-w-[920px] max-w-[1120px] w-[92vw] h-[480px] box-border max-lg:flex max-lg:flex-col max-lg:w-[92vw] max-lg:h-fit max-lg:text-center">
+
+              {/* Information of projects */}
+              <div class="flex flex-col gap-2 border-[0.2px] border-neutral-800 bg-[#2222221b] rounded-md p-2 max-lg:items-center">
                 <h4 class="h5">
-                  {userInfo["data-set"].ui.projects.data[Object.keys(userInfo["data-set"].ui.projects.data)[currOption.value]].title}
+                  {projectsInfo[Object.keys(projectsInfo)[currOption.value]].title}
                 </h4>
                 <p class="p2">
-                  {userInfo["data-set"].ui.projects.data[Object.keys(userInfo["data-set"].ui.projects.data)[currOption.value]]["paragraph-1"]}</p>
+                  {projectsInfo[Object.keys(projectsInfo)[currOption.value]]["paragraph-1"]}</p>
                 <p class="p2">
-                  {userInfo["data-set"].ui.projects.data[Object.keys(userInfo["data-set"].ui.projects.data)[currOption.value]]["paragraph-2"]}</p>
+                  {projectsInfo[Object.keys(projectsInfo)[currOption.value]]["paragraph-2"]}</p>
                 <p class="p2">
-                  {userInfo["data-set"].ui.projects.data[Object.keys(userInfo["data-set"].ui.projects.data)[currOption.value]]["paragraph-3"]}</p>
+                  {projectsInfo[Object.keys(projectsInfo)[currOption.value]]["paragraph-3"]}</p>
                 <div class="flex items-center gap-4">
                   <a
                     class="flex items-center gap-1 p3"
-                    href={userInfo["data-set"].ui.projects.data[Object.keys(userInfo["data-set"].ui.projects.data)[currOption.value]].github}
+                    href={projectsInfo[Object.keys(projectsInfo)[currOption.value]].github}
                   >
                     <img
-                      src={GithubImg}
+                      src={githubIcon}
                       alt="Github Icon"
+                      loading="lazy"
+                      decoding="async"
+                      height={100}
+                      width={100}
                       class="h-6 w-6 rounded-md bg-neutral-800"
                     />
                     Github
                   </a>
                   <a
                     class="flex items-center gap-1 p3"
-                    href={userInfo["data-set"].ui.projects.data[Object.keys(userInfo["data-set"].ui.projects.data)[currOption.value]].live}
+                    href={projectsInfo[Object.keys(projectsInfo)[currOption.value]].live}
                   >
                     <img
-                      src={LinkImg}
+                      src={linkIcon}
                       alt="Link Icon"
+                      loading="lazy"
+                      decoding="async"
+                      height={100}
+                      width={100}
                       class="h-6 w-6 rounded-md bg-neutral-800"
                     />
                     Link
                   </a>
                 </div>
               </div>
-              <div class=" border-[0.2px] border-neutral-800 bg-[#2222221b] rounded-md p-2">
+
+              {/* Banner Image */}
+              <div class=" border-[0.2px] border-neutral-800 bg-[#2222221b] rounded-md p-2 relative">
                 <img
+                  src={projectsInfo[Object.keys(projectsInfo)[currOption.value]][`img${imgOption.value}`]}
                   alt="Poster"
-                  src={userInfo["data-set"].ui.projects.data[Object.keys(userInfo["data-set"].ui.projects.data)[currOption.value]].img1}
-                  class="h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  height={100}
+                  width={100}
+                  class="h-full w-full object-cover max-lg:h-[320px] max-sm:h-[200px]"
                 />
+
+                {/* Image navigation icons */}
+                <div class="absolute flex gap-4 bottom-4 right-4 max-lg:gap-3">
+                  {
+                    Array.from({ length: 2 }).map((_, i) => {
+                      return (
+                        <img
+                          src={arrowIcon}
+                          alt="Arrow icon"
+                          loading="lazy"
+                          decoding="async"
+                          height={100}
+                          width={100}
+                          key={i}
+                          class={`h-12 w-12 object-cover bg-[#252525dc] rounded-md p-2 cursor-pointer max-lg:h-10 max-lg:w-10 max-sm:h-8 max-sm:w-8 ${i === 0 ? "rotate-180" : null}`}
+                          onClick$={() => {
+                            imgOption.value === 3 ? imgOption.value = 1 : imgOption.value = imgOption.value + 1;
+                          }}
+                        />
+                      )
+                    })
+                  }
+                </div>
               </div>
             </section>
+
+            {/* Dots to navigate across multiple projects */}
             <div class="flex gap-4">
               {
-                Object.keys(userInfo["data-set"].ui.projects.data).map((_, id) => {
+                Object.keys(projectsInfo).map((_, id) => {
                   return (
                     <span
                       class={`${currOption.value === id ? "bg-neutral-300" : "bg-neutral-500 hover:bg-neutral-400"} w-3 h-3 rounded-full cursor-pointer`}
+                      key={id}
                       onClick$={() => {
                         currOption.value = id;
                       }}
@@ -72,14 +116,16 @@ export default component$(() => {
                 })
               }
             </div>
+
+            {/* Background text */}
             <p
-              class="title-bg absolute flex flex-col select-none -z-40 -top-[120px]"
+              class="title-bg absolute flex flex-col select-none -z-40 -top-[120px] max-lg:-top-[100px]"
             >
-              {userInfo["data-set"].ui.projects.data[Object.keys(userInfo["data-set"].ui.projects.data)[currOption.value]].section}
+              {projectsInfo[Object.keys(projectsInfo)[currOption.value]].section}
             </p>
           </section>
-        </>
-      )}
+        )
+      }}
     />
   )
 })
