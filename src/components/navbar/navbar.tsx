@@ -109,6 +109,7 @@ const ContactButton = component$(({ navbarInfo, showContact }: { navbarInfo: any
                 isPrimary={true}
                 mode={EButtonMode.TRIGGER}
                 showContact={showContact}
+                icon={false}
               />
             )
           })

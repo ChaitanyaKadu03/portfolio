@@ -1,4 +1,4 @@
-import { component$, Resource, type Signal, useSignal, } from "@builder.io/qwik";
+import { component$, Resource, type Signal, useSignal, useOnWindow, $ } from "@builder.io/qwik";
 import useUserInfo from "@hooks/userInfo";
 import TopSection from "../sub-components/top-section";
 import ContributionsCard from "../sub-components/contributions-card";
@@ -7,9 +7,11 @@ export default component$(() => {
   const userInfo: any = useUserInfo();
   const isMobile: Signal<boolean> = useSignal<boolean>(false);
 
-  if (typeof window !== "undefined" && window.innerWidth < 640) {
-    isMobile.value = true;
-  }
+  useOnWindow("DOMContentLoaded", $(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 640) {
+      isMobile.value = true;
+    }
+  }))
 
   return (
     <Resource

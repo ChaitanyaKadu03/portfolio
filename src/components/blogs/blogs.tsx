@@ -11,7 +11,7 @@ export default component$(() => {
   useVisibleTask$(() => {
     const interval = setInterval(() => {
       idx.value++;
-      const total = Object.keys(userInfo.value?.["data-set"].ui.blogs.data || {}).length;
+      const total = Object.keys(userInfo["data-set"].ui.blogs.data || {}).length;
       if (idx.value >= total) {
         setTimeout(() => {
           sliderRef.value!.style.transition = "none";

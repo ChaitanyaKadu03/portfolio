@@ -1,4 +1,4 @@
-import { component$, Resource, type Signal, useSignal } from "@builder.io/qwik";
+import { component$, Resource, type Signal, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import useUserInfo from "@hooks/userInfo";
 import { linkIcon, githubIcon, arrowIcon } from "@media/media";
 
@@ -6,6 +6,14 @@ export default component$(() => {
   const userInfo: any = useUserInfo();
   const currOption: Signal<number> = useSignal<number>(0);
   const imgOption: Signal<number> = useSignal<number>(1); // The projects images silder, range 1 to 3
+
+  useVisibleTask$(({ cleanup }) => {
+    const interval = setInterval(() => {
+      (currOption.value >= (Object.keys(userInfo).length - 1)) ? currOption.value = 0 : currOption.value = currOption.value + 1;
+    }, 6000)
+
+    cleanup(() => clearInterval(interval));
+  })
 
   return (
     <Resource

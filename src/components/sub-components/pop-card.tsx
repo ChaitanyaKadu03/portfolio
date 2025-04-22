@@ -20,13 +20,17 @@ export default component$(({ userInfo, showContact, title, data, mode }: { showC
               <img
                 src={crossIcon}
                 alt='Cross Icon'
+                loading="lazy"
+                decoding="async"
+                height={100}
+                width={100}
                 class="rounded-full cursor-pointer"
                 onClick$={() => (showContact.value = !showContact.value)}
               />
             </div>
             <div class="flex flex-col items-start gap-4 mb-8 w-full">
               {
-                Object.keys(data).map((info: any) => {
+                Object.keys(data).map((info: any, i: number) => {
                   const logo = data[info].logo || GithubIcon;
                   return (
                     <Link
@@ -38,10 +42,15 @@ export default component$(({ userInfo, showContact, title, data, mode }: { showC
                           data[info]
                       }
                       target='_blank'
+                      key={i}
                     >
                       <img
                         src={mode === Mode.Tech ? "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" : logo}
                         alt='Icon'
+                        loading="lazy"
+                        decoding="async"
+                        height={100}
+                        width={100}
                         class="h-6 w-6"
                       />
                       {

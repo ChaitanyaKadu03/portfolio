@@ -21,8 +21,8 @@ export interface ILinkButtonParams extends IButtonsParams {
 export interface ITriggerButtonParams extends IButtonsParams {
   mode: EButtonMode.TRIGGER, // is the button a redirect link or event trigger
   showContact: any,
-  selectedVal: Signal,
-  value: string
+  selectedVal?: Signal,
+  value?: string
 }
 
 export default component$((params: ILinkButtonParams | ITriggerButtonParams) => {
@@ -43,7 +43,7 @@ export default component$((params: ILinkButtonParams | ITriggerButtonParams) => 
 
         if (params.mode === EButtonMode.TRIGGER) {
           // If the button is perceived as a event trigger => Would require showContact, selectedVal, value
-          params.selectedVal.value = params.value;
+          params.selectedVal && (params.selectedVal.value = params.value);
           params.showContact.value = !params.showContact.value;
         } else {
           // If the button is perceived as a link to another webpage => Would require link

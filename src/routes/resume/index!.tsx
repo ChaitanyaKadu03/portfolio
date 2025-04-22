@@ -1,4 +1,4 @@
-import { component$, JSXOutput, Resource, Slot } from "@builder.io/qwik";
+import { component$, type JSXOutput, Resource, Slot } from "@builder.io/qwik";
 import useUserInfo from "@hooks/userInfo";
 
 export default component$(() => {
@@ -42,13 +42,13 @@ const DataInputParser = component$(({ input, data, counter }: { input: any, data
         </ResultText>
     )
   } else if (Array.isArray(data[input])) {
-    const { space, newCounter } = getSpace(counter);
+    const { space } = getSpace(counter);
     return (
       <>
         {
-          data[input].map((info: any) => {
+          data[input].map((info: any, i: number) => {
             return (
-              <ResultText >
+              <ResultText key={i}>
                 <span class="whitespace-pre">{space}</span>* {info}
               </ResultText>
             );

@@ -1,4 +1,4 @@
-import { component$, Resource, type Signal, useStore } from "@builder.io/qwik"
+import { component$, Resource, type Signal, useStore, useVisibleTask$ } from "@builder.io/qwik"
 
 export enum Mode {
   Experience,
@@ -6,22 +6,18 @@ export enum Mode {
 }
 
 export default component$(({ userInfo, currOption, mode }: { userInfo: any, currOption: Signal, mode: Mode }) => {
-  let userData: any = useStore<any>({});
+  useVisibleTask$(({ cleanup }) => {
+    const interval = setInterval(() => {
+      (currOption.value >= (Object.keys(userInfo).length - 1)) ? currOption.value = 0 : currOption.value = currOption.value + 1;
+    }, 6000)
+
+    cleanup(() => clearInterval(interval));
+  })
 
   return (
     <Resource
       value={userInfo}
-      onResolved={(userInfo: any) => {
-        switch (mode) {
-        case Mode.Experience:
-          userData = userInfo["data-set"].ui.experience.data;
-          break;
-        case Mode.Tech:
-          userData = userInfo["data-set"].ui.technologies.data;
-          break;
-        default:
-          userData = userInfo;
-        }
+      onResolved={() => {
         return (
           <select
             name="select"
@@ -34,7 +30,7 @@ export default component$(({ userInfo, currOption, mode }: { userInfo: any, curr
             }}
           >
             {
-              Object.keys(userData).map((info, i) => {
+              Object.keys(userInfo).map((info, i) => {
                 return (
                   <option
                     value={i}

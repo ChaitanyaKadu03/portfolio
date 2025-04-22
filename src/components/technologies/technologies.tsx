@@ -1,4 +1,4 @@
-import { component$, Resource, type Signal, useSignal } from "@builder.io/qwik";
+import { component$, Resource, type Signal, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import useUserInfo from "@hooks/userInfo";
 import TopSection from "../sub-components/top-section";
 import Dropdown, { Mode as DropdownMode } from "../sub-components/dropdown";
@@ -28,7 +28,7 @@ export default component$(() => {
 
             {/* Dropdown button */}
             <div class="w-fit mx-auto">
-              <Dropdown userInfo={userInfo} currOption={currOption} mode={DropdownMode.Tech} />
+              <Dropdown userInfo={techInfo.data} currOption={currOption} mode={DropdownMode.Tech} />
             </div>
 
             {/* Proof of work cards */}

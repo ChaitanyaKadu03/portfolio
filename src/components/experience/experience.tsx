@@ -42,7 +42,7 @@ export default component$(() => {
                   {/* Dropdown to switch between projects */}
                   <Dropdown
                     currOption={currOption}
-                    userInfo={userInfo}
+                    userInfo={experienceInfo}
                     mode={Mode.Experience}
                   />
 
