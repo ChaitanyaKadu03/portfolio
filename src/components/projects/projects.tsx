@@ -3,11 +3,13 @@ import { linkIcon, githubIcon, arrowIcon } from "@media/media";
 import Pako from "pako";
 
 export default component$(() => {
+  
+  const SSG_ORIGIN = "http://localhost:4000";
   const currOption: Signal<number> = useSignal<number>(0);
   const imgOption: Signal<number> = useSignal<number>(1); // The projects images silder, range 1 to 3
 
   const userResource = useResource$(async () => {
-    const response = await fetch('http://localhost:4000/graphql', {
+    const response = await fetch(`${SSG_ORIGIN}/graphql`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

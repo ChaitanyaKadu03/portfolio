@@ -10,9 +10,10 @@ export default component$(() => {
   const currOption: Signal<number> = useSignal<number>(0);
   const selectedVal: Signal<string> = useSignal<string>("JavaScript");
   const showContact: Signal<boolean> = useSignal<boolean>(false);
+  const SSG_ORIGIN = "http://localhost:4000";
 
   const userResource = useResource$(async () => {
-    const response = await fetch('http://localhost:4000/graphql', {
+    const response = await fetch(`${SSG_ORIGIN}/graphql`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

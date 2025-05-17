@@ -1,7 +1,4 @@
-import { component$, Resource } from "@builder.io/qwik";
-import { Link } from "@builder.io/qwik-city";
-import TopSection from "../sub-components/top-section";
-import Pako from "pako";
+import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
 

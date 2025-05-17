@@ -5,6 +5,8 @@ import Pako from "pako";
 
 export default component$(() => {
   const isMobile: Signal<boolean> = useSignal<boolean>(false);
+  
+  const SSG_ORIGIN = "http://localhost:4000";
 
   useOnWindow("DOMContentLoaded", $(() => {
     if (typeof window !== "undefined" && window.innerWidth < 640) {
@@ -13,7 +15,7 @@ export default component$(() => {
   }));
 
   const userResource = useResource$(async () => {
-    const response = await fetch('http://localhost:4000/graphql', {
+    const response = await fetch(`${SSG_ORIGIN}/graphql`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

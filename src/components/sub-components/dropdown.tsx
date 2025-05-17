@@ -1,11 +1,11 @@
-import { component$, Resource, type Signal, useStore, useVisibleTask$ } from "@builder.io/qwik"
+import { component$, Resource, type Signal, useVisibleTask$ } from "@builder.io/qwik"
 
 export enum Mode {
   Experience,
   Tech
 }
 
-export default component$(({ userInfo, currOption, mode }: { userInfo: any, currOption: Signal, mode: Mode }) => {
+export default component$(({ userInfo, currOption }: { userInfo: any, currOption: Signal }) => {
   useVisibleTask$(({ cleanup }) => {
     const interval = setInterval(() => {
       (currOption.value >= (Object.keys(userInfo).length - 1)) ? currOption.value = 0 : currOption.value = currOption.value + 1;

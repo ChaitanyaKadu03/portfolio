@@ -9,9 +9,11 @@ export default component$(() => {
   const pathname = useLocation().url.pathname.slice(1, -1);
   const showContact: Signal<boolean> = useSignal<boolean>(false);
   const showMenu: Signal<boolean> = useSignal<boolean>(false);
+  
+  const SSG_ORIGIN = "http://localhost:4000";
 
   const userResource = useResource$(async () => {
-    const response = await fetch('http://localhost:4000/graphql', {
+    const response = await fetch(`${SSG_ORIGIN}/graphql`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -92,7 +94,7 @@ export default component$(() => {
               </ui>
 
               {/* Contact button */}
-              <ContactButton navbarInfo={navbarInfo} showContact={showContact} />
+              <ContactButton showContact={showContact} />
 
             </nav>
             {
@@ -106,7 +108,7 @@ export default component$(() => {
   )
 })
 
-const ContactButton = component$(({ navbarInfo, showContact }: { navbarInfo: any, showContact: Signal<boolean> }) => {
+const ContactButton = component$(({ showContact }: { showContact: Signal<boolean> }) => {
   return (
     <>
       {/* Contact button */}

@@ -1,14 +1,15 @@
-import { component$, Resource, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, Resource, useResource$, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import TopSection from "../sub-components/top-section";
 import Pako from "pako";
 
 export default component$(() => {
-  const idx = useSignal(0);
   const sliderRef = useSignal<HTMLElement>();
+  
+  const SSG_ORIGIN = "http://localhost:4000";
 
   const userResource = useResource$(async () => {
-    const response = await fetch('http://localhost:4000/graphql', {
+    const response = await fetch(`${SSG_ORIGIN}/graphql`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

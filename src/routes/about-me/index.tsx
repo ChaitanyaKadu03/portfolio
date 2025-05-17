@@ -1,7 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import About from "~/components/about/about";
 import Technologies from "~/components/technologies/technologies";
-import Experience from "../experience";
 
 export default component$(() => {
   return (

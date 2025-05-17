@@ -2,8 +2,11 @@ import { component$, Resource, useResource$ } from "@builder.io/qwik";
 import Pako from "pako";
 
 export default component$(() => {
+  
+  const SSG_ORIGIN = "http://localhost:4000";
+
   const userResource = useResource$(async () => {
-    const response = await fetch('http://localhost:4000/graphql', {
+    const response = await fetch(`${SSG_ORIGIN}/graphql`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
