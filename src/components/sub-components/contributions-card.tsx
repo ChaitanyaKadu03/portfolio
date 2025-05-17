@@ -23,10 +23,10 @@ export default component$(({ info, userInfo }: { info: any, userInfo: any }) => 
             {info.title}
           </p>
           <p class="p3 line-clamp-3 min-2xl:line-clamp-4 max-sm:line-clamp-4">
-            {info["paragraph-1"]}
+            {info["paragraph1"]}
           </p>
           <p class="p3 line-clamp-1">
-            {info["paragraph-2"]}
+            {info["paragraph2"]}
           </p>
           <div class="flex justify-between gap-4 max-sm:flex-col max-sm:gap-1">
             <p

@@ -1,22 +1,37 @@
-import { component$, Resource, type Signal, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import useUserInfo from "@hooks/userInfo";
+import { component$, Resource, type Signal, useResource$, useSignal } from "@builder.io/qwik";
 import TopSection from "../sub-components/top-section";
 import Dropdown, { Mode as DropdownMode } from "../sub-components/dropdown";
 import Button, { EButtonMode } from "../sub-components/button";
 import { githubIcon } from "@media/media";
 import PopCard, { Mode } from "../sub-components/pop-card";
+import Pako from "pako";
 
 export default component$(() => {
-  const userInfo: any = useUserInfo();
   const currOption: Signal<number> = useSignal<number>(0);
   const selectedVal: Signal<string> = useSignal<string>("JavaScript");
   const showContact: Signal<boolean> = useSignal<boolean>(false);
 
+  const userResource = useResource$(async () => {
+    const response = await fetch('http://localhost:4000/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+        query GetTechnologies {
+          technologies
+        }
+        `
+      }),
+    });
+    const result = await response.json()
+    return JSON.parse(Pako.inflate(result.data.technologies, { to: 'string' }));
+  });
+
   return (
     <Resource
-      value={userInfo}
-      onResolved={(userInfo: any) => {
-        const techInfo: any = userInfo["data-set"].ui.technologies;
+      value={userResource}
+      onResolved={(userResource: any) => {
+        const techInfo: any = userResource;
 
         return (
           <section class="flex flex-col gap-12 my-24 relative max-sm:px-4">
@@ -83,10 +98,11 @@ export default component$(() => {
 
                   title={`${selectedVal.value}`}
 
-                  data={techInfo.data[Object.keys(techInfo.data)[currOption.value]][selectedVal.value]["proof-of-work"]}
+                  data={techInfo.data[Object.keys(techInfo.data)[currOption.value]][selectedVal.value]["proofOfWork"]}
 
                   mode={Mode.Tech}
-                  userInfo={userInfo}
+
+                  userInfo={userResource}
                 />
                 :
                 null

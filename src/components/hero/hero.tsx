@@ -1,14 +1,26 @@
-import { component$, Resource } from "@builder.io/qwik"
-import useUserInfo from "@hooks/userInfo";
+import { component$, Resource, useResource$ } from "@builder.io/qwik";
+import Pako from "pako";
 
 export default component$(() => {
-  const userInfo: any = useUserInfo();
+  const userResource = useResource$(async () => {
+    const response = await fetch('http://localhost:4000/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `query Hero {
+            hero
+          }`
+      }),
+    });
+    const result = await response.json()
+    return JSON.parse(Pako.inflate(result.data.hero, { to: 'string' }));
+  });
 
   return (
     <Resource
-      value={userInfo}
-      onResolved={(userInfo: any) => {
-        const heroInfo = userInfo["data-set"].ui.hero;
+      value={userResource}
+      onResolved={(userResource: any) => {
+        const heroInfo = userResource;
 
         return (
           <section class="relative h-[100vh] overflow-hidden flex flex-col items-center justify-center dot-bg">

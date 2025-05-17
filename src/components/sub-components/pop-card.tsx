@@ -9,6 +9,7 @@ export enum Mode {
 }
 
 export default component$(({ userInfo, showContact, title, data, mode }: { showContact: Signal, title: string, data: any, mode: Mode, userInfo: any }) => {
+
   return (
     <Resource
       value={userInfo}
@@ -16,7 +17,7 @@ export default component$(({ userInfo, showContact, title, data, mode }: { showC
         <>
           <section class="fixed top-1/2 left-1/2 -translate-1/2 z-50 flex flex-col gap-4 items-center justify-center bg-[#181818] bg-opacity-50 transition-opacity w-fit h-fit py-8 px-12 rounded-md shadow-lg shadow-[#1818185e]">
             <div class="w-full flex items-center justify-between gap-4">
-              <p class="h5">{title}{mode === Mode.Tech ? ": Proof of Work" : null}</p>
+              <p class="h5">{title}</p>
               <img
                 src={crossIcon}
                 alt='Cross Icon'
@@ -24,7 +25,7 @@ export default component$(({ userInfo, showContact, title, data, mode }: { showC
                 decoding="async"
                 height={100}
                 width={100}
-                class="rounded-full cursor-pointer"
+                class="rounded-full cursor-pointer w-6 h-6"
                 onClick$={() => (showContact.value = !showContact.value)}
               />
             </div>
@@ -32,15 +33,11 @@ export default component$(({ userInfo, showContact, title, data, mode }: { showC
               {
                 Object.keys(data).map((info: any, i: number) => {
                   const logo = data[info].logo || GithubIcon;
+                  console.log(data[info])
                   return (
                     <Link
                       class="flex items-center gap-4 bg-neutral-800 rounded-md w-full px-4 py-1"
-                      href={
-                        mode === Mode.Contact ?
-                          data[info].link
-                          :
-                          data[info]
-                      }
+                      href={data[info].link}
                       target='_blank'
                       key={i}
                     >
@@ -53,14 +50,7 @@ export default component$(({ userInfo, showContact, title, data, mode }: { showC
                         width={100}
                         class="h-6 w-6"
                       />
-                      {
-                        mode === Mode.Contact ?
-                          <p class="p1">{data[info].title}</p>
-                          :
-                          <p class="p1">
-                            {`${info.split("-")[0]}`}
-                          </p>
-                      }
+                      <p class="p1">{data[info].title}</p>
                     </Link>
                   )
                 })

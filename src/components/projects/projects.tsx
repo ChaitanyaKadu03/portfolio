@@ -1,15 +1,31 @@
-import { component$, Resource, type Signal, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import useUserInfo from "@hooks/userInfo";
+import { component$, Resource, type Signal, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { linkIcon, githubIcon, arrowIcon } from "@media/media";
+import Pako from "pako";
 
 export default component$(() => {
-  const userInfo: any = useUserInfo();
   const currOption: Signal<number> = useSignal<number>(0);
   const imgOption: Signal<number> = useSignal<number>(1); // The projects images silder, range 1 to 3
 
+  const userResource = useResource$(async () => {
+    const response = await fetch('http://localhost:4000/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+          query Projects {
+            projects
+          }
+          `
+      }),
+    });
+    const result = await response.json()
+    const projects = JSON.parse(Pako.inflate(result.data.projects, { to: 'string' }))
+    return projects;
+  });
+
   useVisibleTask$(({ cleanup }) => {
     const interval = setInterval(() => {
-      (currOption.value >= (Object.keys(userInfo).length - 1)) ? currOption.value = 0 : currOption.value = currOption.value + 1;
+      (currOption.value >= 3) ? currOption.value = 0 : currOption.value = currOption.value + 1;
     }, 6000)
 
     cleanup(() => clearInterval(interval));
@@ -17,9 +33,9 @@ export default component$(() => {
 
   return (
     <Resource
-      value={userInfo}
-      onResolved={(userInfo: any) => {
-        const projectsInfo: any = userInfo["data-set"].ui.projects.data;
+      value={userResource}
+      onResolved={(userResource: any) => {
+        const projectsInfo: any = userResource.data;
 
         return (
           <section class="flex flex-col gap-6 items-center relative my-[160px] max-sm:gap-4 max-sm:my-12">
@@ -32,11 +48,11 @@ export default component$(() => {
                   {projectsInfo[Object.keys(projectsInfo)[currOption.value]].title}
                 </h4>
                 <p class="p2">
-                  {projectsInfo[Object.keys(projectsInfo)[currOption.value]]["paragraph-1"]}</p>
+                  {projectsInfo[Object.keys(projectsInfo)[currOption.value]]["paragraph1"]}</p>
                 <p class="p2">
-                  {projectsInfo[Object.keys(projectsInfo)[currOption.value]]["paragraph-2"]}</p>
+                  {projectsInfo[Object.keys(projectsInfo)[currOption.value]]["paragraph2"]}</p>
                 <p class="p2">
-                  {projectsInfo[Object.keys(projectsInfo)[currOption.value]]["paragraph-3"]}</p>
+                  {projectsInfo[Object.keys(projectsInfo)[currOption.value]]["paragraph3"]}</p>
                 <div class="flex items-center gap-4">
                   <a
                     class="flex items-center gap-1 p3"

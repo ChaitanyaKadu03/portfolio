@@ -3,6 +3,7 @@ import { routeLoader$, type RequestHandler } from "@builder.io/qwik-city";
 
 import Navbar from "~/components/navbar/navbar";
 import Footer from "~/components/footer/footer";
+import Announcement from "~/components/announcement/announcement";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -24,6 +25,7 @@ export const useServerTimeLoader = routeLoader$(() => {
 export default component$(() => {
   return (
     <section class="max-w-[1640px] mx-auto">
+      <Announcement />
       <Navbar />
       <main>
         <Slot />

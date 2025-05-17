@@ -1,16 +1,30 @@
-import { component$, Resource } from "@builder.io/qwik";
+import { component$, Resource, useResource$ } from "@builder.io/qwik";
 import { personalImg } from "@media/media";
-import useUserInfo from "@hooks/userInfo";
 import { Link } from "@builder.io/qwik-city";
+import Pako from "pako";
 
 export default component$(() => {
-  const userInfo: any = useUserInfo();
+  const userResource = useResource$(async () => {
+    const response = await fetch('http://localhost:4000/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+          query Connect {
+            connect
+          }  
+          `
+      }),
+    });
+    const result = await response.json()
+    return JSON.parse(Pako.inflate(result.data.connect, { to: 'string' }));
+  });
 
   return (
     <Resource
-      value={userInfo}
-      onResolved={(userInfo: any) => {
-        const connectInfo: any = userInfo["data-set"].ui.connect;
+      value={userResource}
+      onResolved={(userResource: any) => {
+        const connectInfo: any = userResource;
 
         return (
           <footer class="flex flex-col gap-12 justify-center items-center my-12 max-lg:gap-8 max-md:px-4">

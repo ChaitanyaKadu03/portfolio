@@ -1,23 +1,40 @@
-import { component$, Resource, type Signal } from '@builder.io/qwik';
-import useUserInfo from "@hooks/userInfo";
+import { component$, Resource, useResource$, type Signal } from '@builder.io/qwik';
 import PopCard, { Mode } from '../sub-components/pop-card';
+import Pako from 'pako';
 
 export default component$(({ showContact }: { showContact: Signal<boolean> }) => {
-  const userInfo: any = useUserInfo();
+  const userResource = useResource$(async () => {
+    const response = await fetch('http://localhost:4000/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+        query Connect {
+          connect
+        }  
+        `
+      }),
+    });
+    const result = await response.json()
+    return JSON.parse(Pako.inflate(result.data.connect, { to: 'string' }));
+  });
 
   return (
     <Resource
-      value={userInfo}
-      onPending={() => <p>...Loading</p>}
-      onResolved={(userInfo: any) => (
-        <PopCard
-          title={userInfo["data-set"].ui.connect.section}
-          data={userInfo["data-set"].ui.connect.data}
-          showContact={showContact}
-          mode={Mode.Contact}
-          userInfo={userInfo}
-        />
-      )}
+      value={userResource}
+      onResolved={(userResource: any) => {
+        const connectInfo = userResource;
+
+        return (
+          <PopCard
+            title={connectInfo.section}
+            data={connectInfo.data}
+            showContact={showContact}
+            mode={Mode.Contact}
+            userInfo={connectInfo}
+          />
+        )
+      }}
     />
   );
 });

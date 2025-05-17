@@ -29,7 +29,6 @@ export default component$((params: ILinkButtonParams | ITriggerButtonParams) => 
   const priBtnCss: string = `border-[0.4px] border-neutral-600 rounded-md px-4 py-2 btn-primary blue-gradient cursor-pointer btn-shadow flex gap-2 items-center w-fit`;
   const secBtnCss: string = `border-[0.4px] border-neutral-600 rounded-md px-4 py-2 btn-primary blue-gradient cursor-pointer btn-shadow flex gap-2 items-center w-fit max-md:px-1 max-md:py-1 max-md:gap-0 max-md:line-camp-1 max-md:overflow-hidden`;
   const navigate: RouteNavigate = useNavigate();
-
   return (
     <button
       class={
@@ -44,6 +43,7 @@ export default component$((params: ILinkButtonParams | ITriggerButtonParams) => 
         if (params.mode === EButtonMode.TRIGGER) {
           // If the button is perceived as a event trigger => Would require showContact, selectedVal, value
           params.selectedVal && (params.selectedVal.value = params.value);
+          console.log(params.showContact.value)
           params.showContact.value = !params.showContact.value;
         } else {
           // If the button is perceived as a link to another webpage => Would require link

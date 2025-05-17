@@ -1,16 +1,31 @@
-import { component$, Resource, type Signal, useSignal } from "@builder.io/qwik";
-import useUserInfo from "@hooks/userInfo";
+import { component$, Resource, type Signal, useResource$, useSignal } from "@builder.io/qwik";
 import Dropdown, { Mode } from "../sub-components/dropdown";
+import Pako from "pako";
 
 export default component$(() => {
-  const userInfo: any = useUserInfo();
   const currOption: Signal<number> = useSignal<number>(0);
+
+  const userResource = useResource$(async () => {
+    const response = await fetch('http://localhost:4000/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+        query Experience {
+          experience
+        }
+        `
+      }),
+    });
+    const result = await response.json()
+    return JSON.parse(Pako.inflate(result.data.experience, { to: 'string' }));
+  });
 
   return (
     <Resource
-      value={userInfo}
-      onResolved={(userInfo: any) => {
-        const experienceInfo: any = userInfo["data-set"].ui.experience.data; // Unlike other sections we have focused directly on data
+      value={userResource}
+      onResolved={(userResource: any) => {
+        const experienceInfo: any = userResource.data; // Unlike other sections we have focused directly on data
 
         return (
           <section

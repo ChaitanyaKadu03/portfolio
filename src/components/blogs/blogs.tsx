@@ -1,36 +1,49 @@
-import { component$, Resource, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, Resource, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import useUserInfo from "@hooks/userInfo";
 import TopSection from "../sub-components/top-section";
+import Pako from "pako";
 
 export default component$(() => {
-  const userInfo: any = useUserInfo();
   const idx = useSignal(0);
   const sliderRef = useSignal<HTMLElement>();
 
-  useVisibleTask$(() => {
-    const interval = setInterval(() => {
-      idx.value++;
-      const total = Object.keys(userInfo["data-set"].ui.blogs.data || {}).length;
-      if (idx.value >= total) {
-        setTimeout(() => {
-          sliderRef.value!.style.transition = "none";
-          idx.value = 0;
-
-          sliderRef.value!.offsetHeight;
-          sliderRef.value!.style.transition = "";
-        }, 500);
-      }
-    }, 3000);
-
-    return () => clearInterval(interval);
+  const userResource = useResource$(async () => {
+    const response = await fetch('http://localhost:4000/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `query Blogs {
+          blogs
+        }`
+      }),
+    });
+    const result = await response.json()
+    return JSON.parse(Pako.inflate(result.data.blogs, { to: 'string' }));
   });
+
+  // useVisibleTask$(() => {
+  //   const interval = setInterval(() => {
+  //     idx.value++;
+  //     const total = Object.keys(userInfo["data-set"].ui.blogs.data || {}).length;
+  //     if (idx.value >= total) {
+  //       setTimeout(() => {
+  //         sliderRef.value!.style.transition = "none";
+  //         idx.value = 0;
+
+  //         sliderRef.value!.offsetHeight;
+  //         sliderRef.value!.style.transition = "";
+  //       }, 500);
+  //     }
+  //   }, 3000);
+
+  //   return () => clearInterval(interval);
+  // });
 
   return (
     <Resource
-      value={userInfo}
-      onResolved={(user: any) => {
-        const dataArr = Object.values(user["data-set"].ui.blogs.data);
+      value={userResource}
+      onResolved={(userResource: any) => {
+        const dataArr = Object.values(userResource.data);
         const slides = [...dataArr, ...dataArr];
 
         return (
@@ -38,7 +51,7 @@ export default component$(() => {
 
             {/* Heading */}
             <div class="flex flex-col items-center gap-4 text-center">
-              <TopSection userInfo={user["data-set"].ui.blogs} />
+              <TopSection userInfo={userResource} />
             </div>
 
             <div class="relative overflow-hidden w-full bg-[#2222221b] p-2">
