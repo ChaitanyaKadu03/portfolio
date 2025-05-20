@@ -390,3 +390,22 @@ li {
     mask: linear-gradient(-20deg, transparent 20%, white);
   }
 }
+
+.slide-in-animation {
+  position: relative;
+  animation: slide-up 1s ease-in;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    top: 8vh;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}

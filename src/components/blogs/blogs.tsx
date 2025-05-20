@@ -1,4 +1,4 @@
-import { component$, Resource, useResource$, useSignal } from "@builder.io/qwik";
+import { component$, Resource, Signal, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import TopSection from "../sub-components/top-section";
 import Pako from "pako";
@@ -7,6 +7,16 @@ export default component$(() => {
   const sliderRef = useSignal<HTMLElement>();
   
   const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "https://backend.chaitanyakadu.in";
+
+  const sectionRef: Signal<Element | undefined> = useSignal<Element | undefined>(undefined);
+  const isSectionVisible: Signal<boolean> = useSignal<boolean>(false);
+
+
+  useVisibleTask$(()=>{
+    if(sectionRef.value) {
+      isSectionVisible.value = true;
+    }
+  });
 
   const userResource = useResource$(async () => {
     const response = await fetch(`${SSG_ORIGIN}/graphql`, {
@@ -48,7 +58,10 @@ export default component$(() => {
         const slides = [...dataArr, ...dataArr];
 
         return (
-          <section class="flex flex-col gap-8 items-center my-[160px] overflow-hidden max-md:my-8">
+          <section 
+            class={`flex flex-col gap-8 items-center my-[160px] overflow-hidden max-md:my-8 ${isSectionVisible.value ? "slide-in-animation" : "opacity-0 top-[8vh]"}`}
+            ref={sectionRef}
+          >
 
             {/* Heading */}
             <div class="flex flex-col items-center gap-4 text-center">

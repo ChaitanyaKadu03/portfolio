@@ -1,4 +1,4 @@
-import { component$, Resource, useResource$ } from "@builder.io/qwik";
+import { component$, Resource, Signal, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { githubIcon, githubBgIcon } from "@media/media";
 import TopSection from "../sub-components/top-section";
 import Pako from "pako";
@@ -6,6 +6,16 @@ import Pako from "pako";
 export default component$(() => {
   
   const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "https://backend.chaitanyakadu.in";
+
+  const sectionRef: Signal<Element | undefined> = useSignal<Element | undefined>(undefined);
+  const isSectionVisible: Signal<boolean> = useSignal<boolean>(false);
+
+
+  useVisibleTask$(()=>{
+    if(sectionRef.value) {
+      isSectionVisible.value = true;
+    }
+  });
 
   const userResource = useResource$(async () => {
     const response = await fetch(`${SSG_ORIGIN}/graphql`, {
@@ -30,7 +40,10 @@ export default component$(() => {
         const openSourceInfo: any = userResource;
 
         return (
-          <section class="flex flex-col items-center gap-12 my-8 max-lg:gap-10 max-md:mx-4">
+          <section 
+            class={`flex flex-col items-center gap-12 my-8 max-lg:gap-10 max-md:mx-4 ${isSectionVisible.value ? "slide-in-animation" : "opacity-0 top-[8vh]"}`}
+            ref={sectionRef}
+          >
 
             {/* Heading part */}
             <div class="flex flex-col items-center text-center gap-4">

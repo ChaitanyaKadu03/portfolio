@@ -1,4 +1,4 @@
-import { component$, Resource, type Signal, useResource$, useSignal } from "@builder.io/qwik";
+import { component$, Resource, type Signal, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import TopSection from "../sub-components/top-section";
 import Dropdown, { Mode as DropdownMode } from "../sub-components/dropdown";
 import Button, { EButtonMode } from "../sub-components/button";
@@ -11,6 +11,15 @@ export default component$(() => {
   const selectedVal: Signal<string> = useSignal<string>("JavaScript");
   const showContact: Signal<boolean> = useSignal<boolean>(false);
   const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "https://backend.chaitanyakadu.in";
+  const sectionRef: Signal<Element | undefined> = useSignal<Element | undefined>(undefined);
+  const isSectionVisible: Signal<boolean> = useSignal<boolean>(false);
+
+
+  useVisibleTask$(()=>{
+    if(sectionRef.value) {
+      isSectionVisible.value = true;
+    }
+  });
 
   const userResource = useResource$(async () => {
     const response = await fetch(`${SSG_ORIGIN}/graphql`, {
@@ -35,7 +44,10 @@ export default component$(() => {
         const techInfo: any = userResource;
 
         return (
-          <section class="flex flex-col gap-12 my-24 relative max-sm:px-4">
+          <section 
+            class={`flex flex-col gap-12 my-24 relative max-sm:px-4  ${isSectionVisible.value ? "slide-in-animation" : "opacity-0 top-[8vh]"}`}
+            ref={sectionRef}
+          >
 
             {/* Headings */}
             <div class="flex flex-col items-center justify-center text-center gap-2">

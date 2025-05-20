@@ -1,10 +1,12 @@
-import { component$, Resource, type Signal, useSignal, useOnWindow, $, useResource$ } from "@builder.io/qwik";
+import { component$, Resource, type Signal, useSignal, useOnWindow, $, useResource$, useVisibleTask$ } from "@builder.io/qwik";
 import TopSection from "../sub-components/top-section";
 import ContributionsCard from "../sub-components/contributions-card";
 import Pako from "pako";
 
 export default component$(() => {
   const isMobile: Signal<boolean> = useSignal<boolean>(false);
+  const sectionRef: Signal<Element | undefined> = useSignal<Element | undefined>(undefined);
+  const isSectionVisible: Signal<boolean> = useSignal<boolean>(false);
   
   const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "https://backend.chaitanyakadu.in";
 
@@ -13,6 +15,12 @@ export default component$(() => {
       isMobile.value = true;
     }
   }));
+
+  useVisibleTask$(()=>{
+    if(sectionRef.value) {
+      isSectionVisible.value = true;
+    }
+  });
 
   const userResource = useResource$(async () => {
     const response = await fetch(`${SSG_ORIGIN}/graphql`, {
@@ -42,7 +50,8 @@ export default component$(() => {
 
         return (
           <section
-            class="h-[100vh] flex flex-col justify-center items-center text-center gap-2 relative"
+            class={`h-[100vh] flex flex-col justify-center items-center text-center gap-2 relative ${isSectionVisible.value ? "slide-in-animation" : "opacity-0 top-[8vh]"}`}
+            ref={sectionRef}
           >
             <TopSection userInfo={aboutInfo} />
 

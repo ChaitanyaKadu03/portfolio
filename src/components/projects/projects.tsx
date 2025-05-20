@@ -7,6 +7,8 @@ export default component$(() => {
   const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "https://backend.chaitanyakadu.in";
   const currOption: Signal<number> = useSignal<number>(0);
   const imgOption: Signal<number> = useSignal<number>(1); // The projects images silder, range 1 to 3
+  const sectionRef: Signal<Element | undefined> = useSignal<Element | undefined>(undefined);
+  const isSectionVisible: Signal<boolean> = useSignal<boolean>(false);
 
   const userResource = useResource$(async () => {
     const response = await fetch(`${SSG_ORIGIN}/graphql`, {
@@ -30,6 +32,10 @@ export default component$(() => {
       (currOption.value >= 3) ? currOption.value = 0 : currOption.value = currOption.value + 1;
     }, 6000)
 
+    if(sectionRef.value) {
+      isSectionVisible.value = true;
+    }
+
     cleanup(() => clearInterval(interval));
   })
 
@@ -40,7 +46,9 @@ export default component$(() => {
         const projectsInfo: any = userResource.data;
 
         return (
-          <section class="flex flex-col gap-6 items-center relative my-[160px] max-sm:gap-4 max-sm:my-12">
+          <section 
+            class={`flex flex-col gap-6 items-center relative my-[160px] max-sm:gap-4 max-sm:my-12 ${isSectionVisible.value ? "slide-in-animation" : "opacity-0 top-[8vh]"}`}
+            ref={sectionRef}>
 
             <section class="grid grid-cols-2 gap-2 border-[0.2px] border-neutral-800 bg-[#22222235] rounded-md p-2 min-lg:min-w-[920px] max-w-[1120px] w-[92vw] h-[480px] box-border max-lg:flex max-lg:flex-col max-lg:w-[92vw] max-lg:h-fit max-lg:text-center">
 

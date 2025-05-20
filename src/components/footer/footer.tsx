@@ -1,4 +1,4 @@
-import { component$, Resource, useResource$ } from "@builder.io/qwik";
+import { component$, Resource, Signal, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { personalImg } from "@media/media";
 import { Link } from "@builder.io/qwik-city";
 import Pako from "pako";
@@ -6,6 +6,16 @@ import Pako from "pako";
 export default component$(() => {
   
   const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "https://backend.chaitanyakadu.in";
+
+  const sectionRef: Signal<Element | undefined> = useSignal<Element | undefined>(undefined);
+  const isSectionVisible: Signal<boolean> = useSignal<boolean>(false);
+
+
+  useVisibleTask$(()=>{
+    if(sectionRef.value) {
+      isSectionVisible.value = true;
+    }
+  });
 
   const userResource = useResource$(async () => {
     const response = await fetch(`${SSG_ORIGIN}/graphql`, {
@@ -30,7 +40,10 @@ export default component$(() => {
         const connectInfo: any = userResource;
 
         return (
-          <footer class="flex flex-col gap-12 justify-center items-center my-12 max-lg:gap-8 max-md:px-4">
+          <footer 
+            class={`flex flex-col gap-12 justify-center items-center my-12 max-lg:gap-8 max-md:px-4 ${isSectionVisible.value ? "slide-in-animation" : "opacity-0 top-[8vh]"}`}
+            ref={sectionRef}
+          >
 
             {/* Top part */}
             <div class="grid grid-cols-3 items-center max-lg:grid-cols-4 gap-4 max-md:gap-4">

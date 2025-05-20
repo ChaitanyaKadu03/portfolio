@@ -4,6 +4,7 @@ import {
   type Signal,
   useResource$,
   useSignal,
+  useVisibleTask$,
 } from "@builder.io/qwik";
 import Dropdown, { Mode } from "../sub-components/dropdown";
 import Pako from "pako";
@@ -12,6 +13,16 @@ export default component$(() => {
   const currOption: Signal<number> = useSignal<number>(0);
 
   const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "https://backend.chaitanyakadu.in";
+
+  const sectionRef: Signal<Element | undefined> = useSignal<Element | undefined>(undefined);
+  const isSectionVisible: Signal<boolean> = useSignal<boolean>(false);
+
+
+  useVisibleTask$(()=>{
+    if(sectionRef.value) {
+      isSectionVisible.value = true;
+    }
+  });
 
   const userResource = useResource$(async () => {
     const response = await fetch(`${SSG_ORIGIN}/graphql`, {
@@ -36,7 +47,10 @@ export default component$(() => {
         const experienceInfo: any = userResource.data; // Unlike other sections we have focused directly on data
 
         return (
-          <section class="grid grid-cols-3 py-[120px] dot-bg max-w-[1560px] mx-auto max-xl:w-[96vw] max-xl:gap-0 max-lg:flex max-lg:flex-col max-lg:gap-8 max-lg:w-full">
+          <section 
+            class={`grid grid-cols-3 py-[120px] dot-bg max-w-[1560px] mx-auto max-xl:w-[96vw] max-xl:gap-0 max-lg:flex max-lg:flex-col max-lg:gap-8 max-lg:w-full ${isSectionVisible.value ? "slide-in-animation" : "opacity-0 top-[8vh]"}`}
+            ref={sectionRef}
+          >
             {/* Background gradient visible only for devices with width < 1024px */}
             <span class="hidden max-lg:block max-lg:w-full max-lg:h-[200px] max-lg:bg-[#0e0e0e] max-lg:sticky max-lg:top-0 max-md:hidden" />
 
