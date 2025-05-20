@@ -10,7 +10,7 @@ export default component$(() => {
   const showContact: Signal<boolean> = useSignal<boolean>(false);
   const showMenu: Signal<boolean> = useSignal<boolean>(false);
   
-  const SSG_ORIGIN = "http://localhost:4000";
+  const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "http://localhost:4000";
 
   const userResource = useResource$(async () => {
     const response = await fetch(`${SSG_ORIGIN}/graphql`, {

@@ -4,7 +4,7 @@ import Pako from 'pako';
 
 export default component$(({ showContact }: { showContact: Signal<boolean> }) => {
   
-  const SSG_ORIGIN = "http://localhost:4000";
+  const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "http://localhost:4000";
 
   const userResource = useResource$(async () => {
     const response = await fetch(`${SSG_ORIGIN}/graphql`, {

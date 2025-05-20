@@ -22,8 +22,6 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "test": "vitest",
-    "test.development": "npm run lint",
     "qwik": "qwik"
   },
   "devDependencies": {
