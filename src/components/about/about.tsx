@@ -6,7 +6,7 @@ import Pako from "pako";
 export default component$(() => {
   const isMobile: Signal<boolean> = useSignal<boolean>(false);
   
-  const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "http://localhost:4000";
+  const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "https://backend.chaitanyakadu.in";
 
   useOnWindow("DOMContentLoaded", $(() => {
     if (typeof window !== "undefined" && window.innerWidth < 640) {

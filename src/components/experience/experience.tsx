@@ -11,7 +11,7 @@ import Pako from "pako";
 export default component$(() => {
   const currOption: Signal<number> = useSignal<number>(0);
 
-  const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "http://localhost:4000";
+  const SSG_ORIGIN = import.meta.env.SSR_ORIGIN || "https://backend.chaitanyakadu.in";
 
   const userResource = useResource$(async () => {
     const response = await fetch(`${SSG_ORIGIN}/graphql`, {
