@@ -27,12 +27,13 @@ export default component$(() => {
 
         return (
           <section class="relative h-[100vh] overflow-hidden flex flex-col items-center justify-center dot-bg">
+            <span class="absolute h-[100vh] w-[100vw] overflow-hidden min-lg:hidden hero-bg" />
             <h6
-              class="font-[Gochi Hand] text-[20px] font-medium tracking-[0px] bg-gradient-to-r from-neutral-300 from-10% via-neutral-400 via-50% to-neutral-500 to-95% bg-clip-text text-transparent relative top-[16px] select-none max-lg:text-[18px] max-lg:top-0 max-sm:text-[14px]"
+              class="font-[Gochi Hand] text-[20px] font-medium tracking-[0px] bg-gradient-to-r from-neutral-300 from-10% via-neutral-400 via-50% to-neutral-500 to-95% bg-clip-text text-transparent relative top-[16px] select-none max-lg:text-[18px] max-lg:top-0 max-sm:text-[14px] visibility-inc"
             >
               {heroInfo.section}
             </h6>
-            <h1 class="font-[Gochi Hand] text-[160px] leading-[120%] font-bold tracking-[-8px] bg-gradient-to-r from-blue-300 from-10% via-blue-500 via-50% to-blue-900 to-95% bg-clip-text text-transparent relative top-[-24px] select-none max-lg:text-[120px] max-md:text-[80px] max-md:tracking-tight max-md:top-[-12px] max-sm:text-[58px] max-sm:top-[-8px]">
+            <h1 class="font-[Gochi Hand] text-[160px] leading-[120%] font-bold tracking-[-8px] bg-gradient-to-r from-blue-300 from-10% via-blue-500 via-50% to-blue-900 to-95% bg-clip-text text-transparent relative top-[-24px] select-none max-lg:text-[120px] max-md:text-[80px] max-md:tracking-tight max-md:top-[-12px] max-sm:text-[58px] max-sm:top-[-8px] visibility-inc">
               {heroInfo.header}
             </h1>
 

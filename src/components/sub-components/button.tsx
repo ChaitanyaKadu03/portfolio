@@ -43,7 +43,6 @@ export default component$((params: ILinkButtonParams | ITriggerButtonParams) => 
         if (params.mode === EButtonMode.TRIGGER) {
           // If the button is perceived as a event trigger => Would require showContact, selectedVal, value
           params.selectedVal && (params.selectedVal.value = params.value);
-          console.log(params.showContact.value)
           params.showContact.value = !params.showContact.value;
         } else {
           // If the button is perceived as a link to another webpage => Would require link

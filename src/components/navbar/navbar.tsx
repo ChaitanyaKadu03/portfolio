@@ -32,71 +32,73 @@ export default component$(() => {
 
         return (
           <>
-            <nav class="flex items-center justify-between rounded-md p-2 w-[960px] mx-auto border-[0.6px] border-neutral-800 bg-[#0f0f0fdf] fixed top-[24px] left-1/2 min-sm:-translate-x-1/2 z-40 backdrop-blur max-lg:w-[80vw] max-sm:top-0 max-sm:left-0 max-sm:w-full max-sm:rounded-none max-sm:px-4 max-sm:py-4 max-sm:border-b-[0.6px] max-sm:border-0">
+            <section class="fixed top-[24px] left-1/2 min-sm:-translate-x-1/2 z-40 max-lg:w-[80vw] max-sm:top-0 max-sm:left-0 max-sm:w-full">
+              <nav class="flex items-center justify-between rounded-md p-2 w-[960px] mx-auto border-[0.6px] border-neutral-800 bg-[#0f0f0fdf] backdrop-blur max-sm:rounded-none max-sm:px-4 max-sm:py-4 max-sm:border-b-[0.6px] max-sm:border-0">
 
-              {/* The icon and first name */}
-              <Link
-                href="/"
-                class="flex flex-row items-center gap-4">
+                {/* The icon and first name */}
+                <Link
+                  href="/"
+                  class="flex flex-row items-center gap-4">
+                  <img
+                    src={personalImg}
+                    alt="Logo"
+                    decoding="async"
+                    height={100}
+                    width={100}
+                    class="w-10 h-10 object-cover rounded-md max-sm:w-8 max-sm:h-8"
+                  />
+                  <li class="h6-nav font-[jost]">Chaitanya</li>
+                </Link>
+
+                {/* Menu icon */}
                 <img
-                  src={personalImg}
-                  alt="Logo"
+                  src={showMenu.value ? crossWhiteIcon : menuIcon}
+                  alt="Menu Icon"
                   decoding="async"
-                  height={100}
+                  loading="lazy"
+                  fetchPriority="high"
                   width={100}
-                  class="w-10 h-10 object-cover rounded-md max-sm:w-8 max-sm:h-8"
+                  height={100}
+                  class="min-lg:hidden h-10 w-10 cursor-pointer max-sm:h-8 max-sm:w-8"
+                  onClick$={() => {
+                    showMenu.value = !showMenu.value;
+                  }}
                 />
-                <li class="h6-nav font-[jost]">Chaitanya</li>
-              </Link>
 
-              {/* Menu icon */}
-              <img
-                src={showMenu.value ? crossWhiteIcon : menuIcon}
-                alt="Menu Icon"
-                decoding="async"
-                loading="lazy"
-                fetchPriority="high"
-                width={100}
-                height={100}
-                class="min-lg:hidden h-10 w-10 cursor-pointer max-sm:h-8 max-sm:w-8"
-                onClick$={() => {
-                  showMenu.value = !showMenu.value;
-                }}
-              />
-
-              {/* Nav buttons */}
-              <ui class={`flex gap-4 ${showMenu.value ? "max-lg:absolute max-lg:flex max-lg:flex-col max-lg:items-center max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:top-16 max-lg:bg-[#181818] max-lg:w-full max-lg:h-fit max-lg:py-12" : "max-lg:hidden"}`}>
-                {
-                  Object.keys(navbarInfo).map((info: string) => {
-                    return (
-                      <li
-                        class="flex gap-2 items-center"
-                        key={info}
-                      >
-                        {
-                          navbarInfo[info].link == pathname
-                            ?
-                            <span class="bg-[#006ded] w-1 h-1 rounded-full block" />
-                            :
-                            null
-                        }
-                        <Link
-                          href={`/${navbarInfo[info].link}`}
-                          class={`p2-nav ${navbarInfo[info].link == pathname ? "text-neutral-300" : "text-neutral-400 hover:text-neutral-300"}`}
+                {/* Nav buttons */}
+                <ui class={`flex gap-4 ${showMenu.value ? "max-lg:absolute max-lg:flex max-lg:flex-col max-lg:items-center max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:top-16 max-lg:bg-[#181818] max-lg:w-full max-lg:h-fit max-lg:py-12" : "max-lg:hidden"}`}>
+                  {
+                    Object.keys(navbarInfo).map((info: string) => {
+                      return (
+                        <li
+                          class="flex gap-2 items-center"
                           key={info}
                         >
-                          {navbarInfo[info].title}
-                        </Link>
-                      </li>
-                    )
-                  })
-                }
-              </ui>
+                          {
+                            navbarInfo[info].link == pathname
+                              ?
+                              <span class="bg-[#006ded] w-1 h-1 rounded-full block" />
+                              :
+                              null
+                          }
+                          <Link
+                            href={`/${navbarInfo[info].link}`}
+                            class={`p2-nav ${navbarInfo[info].link == pathname ? "text-neutral-300" : "text-neutral-400 hover:text-neutral-300"}`}
+                            key={info}
+                          >
+                            {navbarInfo[info].title}
+                          </Link>
+                        </li>
+                      )
+                    })
+                  }
+                </ui>
 
-              {/* Contact button */}
-              <ContactButton showContact={showContact} />
+                {/* Contact button */}
+                <ContactButton showContact={showContact} />
 
-            </nav>
+              </nav>
+            </section>
             {
               showContact.value ?
                 <Contact showContact={showContact} /> : null

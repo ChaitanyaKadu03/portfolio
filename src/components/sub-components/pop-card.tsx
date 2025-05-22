@@ -33,7 +33,6 @@ export default component$(({ userInfo, showContact, title, data, mode }: { showC
               {
                 Object.keys(data).map((info: any, i: number) => {
                   const logo = data[info].logo || GithubIcon;
-                  console.log(data[info])
                   return (
                     <Link
                       class="flex items-center gap-4 bg-neutral-800 rounded-md w-full px-4 py-1"

@@ -55,7 +55,6 @@ export default component$(() => {
       value={userResource}
       onResolved={(userResource: any) => {
         const dataArr = Object.values(userResource.data);
-        const slides = [...dataArr, ...dataArr];
 
         return (
           <section 
@@ -73,17 +72,17 @@ export default component$(() => {
               {/* Cards slider */}
               <div
                 ref={sliderRef}
-                class="flex gap-2 transition-transform duration-500"
+                class="grid grid-cols-4 max-lg:grid-cols-2 gap-2 transition-transform duration-500"
               // style={`transform: translateX(-${idx.value * (100 / slides.length)}%)`}
               >
 
                 {/* Each card */}
-                {slides.map((item: any, i) => (
+                {dataArr.slice(0,4).map((item: any, i) => (
                   <div
-                    class="inline-block flex-shrink-0 w-[calc(25%_-_0.5rem)] rounded-[10px] h-full max-lg:w-[calc(50%_-_0.5rem)] max-md:w-[calc(82%_-_0.5rem)]"
+                    class="inline-block flex-shrink-0 w-full rounded-[10px] h-fit opacity-40 hover:opacity-100 transition-opacity transition-discrete duration-500 ease-in-out"
                     key={i}
                   >
-                    <div class="relative overflow-hidden h-[240px] rounded-t-[10px] max-lg:max-h-[200px]">
+                    <div class="relative overflow-hidden h-[240px] rounded-t-[10px] max-lg:max-h-[200px] max-md:max-h-[120px]">
                       <Link
                         href={item.link}
                         class="p-2"
@@ -102,25 +101,13 @@ export default component$(() => {
                     </div>
 
                     <div class="flex flex-col items-start bg-[#1f1f1f98] p-[10px] rounded-b-[10px] gap-2 h-full max-lg:h-full">
-                      <p class="p2 line-clamp-2">{item.title}</p>
+                      <p class="p2 line-clamp-1">{item.title}</p>
                       <p class="p3 h-fit w-full line-clamp-4 overflow-hidden max-lg:line-clamp-3">{item.paragraph}</p>
                       <p class="p3">{item.date}</p>
                     </div>
                   </div>
                 ))}
               </div>
-
-              {/* Gradient background */}
-              {
-                Array.from({ length: 2 }).map((_, i: number) => {
-                  return (
-                    <span
-                      class={`pointer-events-none from-[#0e0e0e] from-0% via-[#0e0e0ed1] via-40% to-transparent absolute inset-y-0  w-[420px] max-lg:w-[200px] max-lg:via-[#0e0e0ec2] max-md:w-[80px] max-md:via-[#0e0e0e9d] ${i === 0 ? "bg-gradient-to-r left-0" : "bg-gradient-to-l right-0"}`}
-                      key={i}
-                    />
-                  )
-                })
-              }
             </div>
           </section>
         );
