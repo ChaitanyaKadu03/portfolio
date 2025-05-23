@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "This project is a cutting-edge, developer-focused portfolio designed to showcase the best of modern web development. Crafted to reflect the multifaceted journey of a programmer, it delivers an exceptional user experience, leverages blazing performance optimizations, and features a clean, intuitive UI.",
   "engines": {
     "node": "^18.17.0 || ^20.3.0 || >=21.0.0"

@@ -9,7 +9,7 @@ export default component$(({ userInfo, currOption }: { userInfo: any, currOption
   useVisibleTask$(({ cleanup }) => {
     const interval = setInterval(() => {
       (currOption.value >= (Object.keys(userInfo).length - 1)) ? currOption.value = 0 : currOption.value = currOption.value + 1;
-    }, 6000)
+    }, 12000)
 
     cleanup(() => clearInterval(interval));
   })

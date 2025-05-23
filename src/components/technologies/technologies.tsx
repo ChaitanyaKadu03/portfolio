@@ -7,7 +7,7 @@ import PopCard, { Mode } from "../sub-components/pop-card";
 import Pako from "pako";
 
 export default component$(() => {
-  const isMobile: Signal<boolean> = useSignal<boolean>(false);
+  const isMobile: Signal<boolean> = useSignal<boolean>(true);
   const currOption: Signal<number> = useSignal<number>(0);
   const selectedVal: Signal<string> = useSignal<string>("JavaScript");
   const showContact: Signal<boolean> = useSignal<boolean>(false);
@@ -22,11 +22,11 @@ export default component$(() => {
     }
   });
 
-  useOnWindow("DOMContentLoaded", $(() => {
-    if (typeof window !== "undefined" && window.innerWidth < 820) {
-      isMobile.value = true;
-    }
-  }));
+  // useOnWindow("DOMContentLoaded", $(() => {
+  //   if (typeof window !== "undefined" && window.innerWidth < 820) {
+  //     isMobile.value = true;
+  //   }
+  // }));
 
   const userResource = useResource$(async () => {
     const response = await fetch(`${SSG_ORIGIN}/graphql`, {
@@ -146,7 +146,7 @@ export default component$(() => {
               </div>
 
               {/* Timeline view */}
-              <div class="timeline mx-auto max-w-[760px] rounded-md box-bordern">
+              <div class="timeline mx-auto max-w-[760px] rounded-md box-border">
 
                 {/* For background color */}
                 <span class="bg-[#181818] rounded-md w-full h-full -z-40 absolute top-0"/>

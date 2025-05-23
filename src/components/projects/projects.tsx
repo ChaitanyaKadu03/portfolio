@@ -67,6 +67,7 @@ export default component$(() => {
                   <a
                     class="flex items-center gap-1 p3"
                     href={projectsInfo[Object.keys(projectsInfo)[currOption.value]].github}
+                    target="_blank"
                   >
                     <img
                       src={githubIcon}
@@ -82,6 +83,7 @@ export default component$(() => {
                   <a
                     class="flex items-center gap-1 p3"
                     href={projectsInfo[Object.keys(projectsInfo)[currOption.value]].live}
+                    target="_blank"
                   >
                     <img
                       src={linkIcon}

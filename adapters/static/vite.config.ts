@@ -12,7 +12,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: 'http://backend.chaitanyakadu.in',
+        origin: 'https://backend.chaitanyakadu.in',
       }),
     ],
   };

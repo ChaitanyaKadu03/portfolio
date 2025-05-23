@@ -73,6 +73,7 @@ export default component$(() => {
                         <a
                           class="flex items-center gap-1 p3"
                           href={info.github}
+                          target="_blank"
                         >
                           <img
                             src={githubIcon}
