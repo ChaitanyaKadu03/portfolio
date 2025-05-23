@@ -1,4 +1,4 @@
-import { component$, Resource, Signal, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, Resource, type Signal, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { personalImg } from "@media/media";
 import { Link } from "@builder.io/qwik-city";
 import Pako from "pako";

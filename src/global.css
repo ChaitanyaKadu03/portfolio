@@ -23,21 +23,6 @@ li {
 /* H1 */
 .h1 {
   @apply text-[48px] leading-[120%] tracking-[2%] font-bold text-neutral-50;
-  /* Default (Desktop) */
-}
-
-@media (max-width: 768px) {
-  .h1 {
-    @apply text-[36px] leading-[120%] tracking-[2%] font-bold text-neutral-50;
-    /* Tablet */
-  }
-}
-
-@media (max-width: 480px) {
-  .h1 {
-    @apply text-[28px] leading-[120%] tracking-[2%] font-bold text-neutral-50;
-    /* Mobile */
-  }
 }
 
 /* H2 */
@@ -45,33 +30,9 @@ li {
   @apply text-[40px] leading-[130%] tracking-[1.5%] font-semibold text-neutral-100;
 }
 
-@media (max-width: 768px) {
-  .h2 {
-    @apply text-[32px] leading-[130%] tracking-[1.5%] font-semibold text-neutral-100;
-  }
-}
-
-@media (max-width: 480px) {
-  .h2 {
-    @apply text-[24px] leading-[130%] tracking-[1.5%] font-semibold text-neutral-100;
-  }
-}
-
 /* H3 */
 .h3 {
   @apply text-[32px] leading-[130%] tracking-[1%] font-semibold text-neutral-200;
-}
-
-@media (max-width: 768px) {
-  .h3 {
-    @apply text-[28px] leading-[130%] tracking-[1%] font-semibold text-neutral-200;
-  }
-}
-
-@media (max-width: 480px) {
-  .h3 {
-    @apply text-[20px] leading-[130%] tracking-[1%] font-semibold text-neutral-200;
-  }
 }
 
 /* H4 */
@@ -79,33 +40,9 @@ li {
   @apply text-[28px] leading-[140%] tracking-[1%] font-semibold text-neutral-300 hover:text-neutral-200 transition delay-75;
 }
 
-@media (max-width: 768px) {
-  .h4 {
-    @apply text-[24px] leading-[140%] tracking-[1%] font-semibold text-neutral-300 hover:text-neutral-200 transition delay-75;
-  }
-}
-
-@media (max-width: 480px) {
-  .h4 {
-    @apply text-[18px] leading-[140%] tracking-[1%] font-semibold text-neutral-300 hover:text-neutral-200 transition delay-75;
-  }
-}
-
 /* H5 */
 .h5 {
   @apply text-[24px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300 hover:text-neutral-200 transition delay-75;
-}
-
-@media (max-width: 768px) {
-  .h5 {
-    @apply text-[20px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300 hover:text-neutral-200 transition delay-75;
-  }
-}
-
-@media (max-width: 480px) {
-  .h5 {
-    @apply text-[16px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300 hover:text-neutral-200 transition delay-75;
-  }
 }
 
 /* H6 */
@@ -113,33 +50,10 @@ li {
   @apply text-[20px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
 }
 
-@media (max-width: 768px) {
-  .h6 {
-    @apply text-[18px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
-  }
-}
-
-@media (max-width: 480px) {
-  .h6 {
-    @apply text-[14px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
-  }
-}
-
 /* H6 Navbar */
 .h6-nav {
+  font-family: jost;
   @apply text-[20px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
-}
-
-@media (max-width: 768px) {
-  .h6-nav {
-    @apply text-[18px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
-  }
-}
-
-@media (max-width: 480px) {
-  .h6-nav {
-    @apply text-[18px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
-  }
 }
 
 /* H6 Title */
@@ -147,33 +61,9 @@ li {
   @apply text-[20px] leading-[150%] tracking-[0%] font-normal transition delay-75;
 }
 
-@media (max-width: 768px) {
-  .h6-title {
-    @apply text-[18px] leading-[150%] tracking-[0%] font-normal transition delay-75;
-  }
-}
-
-@media (max-width: 480px) {
-  .h6-title {
-    @apply text-[14px] leading-[150%] tracking-[0%] font-normal transition delay-75;
-  }
-}
-
 /* Paragraph - 1 */
 .p1 {
   @apply text-[18px] leading-[160%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
-}
-
-@media (max-width: 768px) {
-  .p1 {
-    @apply text-[16px] leading-[160%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
-  }
-}
-
-@media (max-width: 480px) {
-  .p1 {
-    @apply text-[14px] leading-[160%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
-  }
 }
 
 /* Paragraph - 2 */
@@ -181,51 +71,14 @@ li {
   @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400 hover:text-neutral-300 transition delay-75;
 }
 
-@media (max-width: 768px) {
-  .p2 {
-    @apply text-[14px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400 hover:text-neutral-300 transition delay-75;
-  }
-}
-
-@media (max-width: 480px) {
-  .p2 {
-    @apply text-[12px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
-  }
-}
-
 /* Paragraph - 2 nav */
 .p2-nav {
   @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
 }
 
-@media (max-width: 768px) {
-  .p2-nav {
-    @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
-  }
-}
-
-@media (max-width: 480px) {
-  .p2-nav {
-    @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
-  }
-}
-
 /* For techonologies text */
-
 .p2-txt {
   @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75 text-neutral-800;
-}
-
-@media (max-width: 768px) {
-  .p2-txt {
-    @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75 text-neutral-800;
-  }
-}
-
-@media (max-width: 480px) {
-  .p2-txt {
-    @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75 text-neutral-800;
-  }
 }
 
 /* Paragraph - 3 */
@@ -233,33 +86,9 @@ li {
   @apply text-[14px] leading-[140%] tracking-[0.5%] font-light text-neutral-500 hover:text-neutral-400 transition delay-75;
 }
 
-@media (max-width: 768px) {
-  .p3 {
-    @apply text-[12px] leading-[140%] tracking-[0.5%] font-light text-neutral-500 hover:text-neutral-400 transition delay-75;
-  }
-}
-
-@media (max-width: 480px) {
-  .p3 {
-    @apply text-[10px] leading-[140%] tracking-[0.5%] font-light text-neutral-500 hover:text-neutral-400 transition delay-75;
-  }
-}
-
 /* Primary Button */
 .btn-primary {
   @apply text-[18px] leading-[150%] tracking-[2%] font-normal;
-}
-
-@media (max-width: 768px) {
-  .btn-primary {
-    @apply text-[16px] leading-[150%] tracking-[2%] font-normal;
-  }
-}
-
-@media (max-width: 480px) {
-  .btn-primary {
-    @apply text-[14px] leading-[150%] tracking-[2%] font-normal;
-  }
 }
 
 /* Secondary Button */
@@ -268,12 +97,124 @@ li {
 }
 
 @media (max-width: 768px) {
-  .btn-secondary {
+.h1 {
+    @apply text-[36px] leading-[120%] tracking-[2%] font-bold text-neutral-50;
+  }
+
+.h2 {
+    @apply text-[32px] leading-[130%] tracking-[1.5%] font-semibold text-neutral-100;
+  }
+
+.h3 {
+    @apply text-[28px] leading-[130%] tracking-[1%] font-semibold text-neutral-200;
+  }
+
+.h4 {
+    @apply text-[24px] leading-[140%] tracking-[1%] font-semibold text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+
+.h5 {
+    @apply text-[20px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+
+.h6 {
+    @apply text-[18px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+
+.h6-nav {
+    @apply text-[18px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+
+.h6-title {
+    @apply text-[18px] leading-[150%] tracking-[0%] font-normal transition delay-75;
+  }
+
+.p1 {
+    @apply text-[16px] leading-[160%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+
+.p2 {
+    @apply text-[14px] leading-[140%] tracking-[0.5%] font-normal text-neutral-400 hover:text-neutral-300 transition delay-75;
+  }
+
+.p2-nav {
+    @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
+  }
+
+.p2-txt {
+    @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75 text-neutral-800;
+  }
+
+.p3 {
+    @apply text-[12px] leading-[140%] tracking-[0.5%] font-light text-neutral-500 hover:text-neutral-400 transition delay-75;
+  }
+
+.btn-primary {
+    @apply text-[16px] leading-[150%] tracking-[2%] font-normal;
+  }
+
+.btn-secondary {
     @apply text-[14px] leading-[150%] tracking-[1.5%] font-medium;
   }
 }
 
 @media (max-width: 480px) {
+  .h1 {
+    @apply text-[28px] leading-[120%] tracking-[2%] font-bold text-neutral-50;
+  }
+
+  .h2 {
+    @apply text-[24px] leading-[130%] tracking-[1.5%] font-semibold text-neutral-100;
+  }
+
+  .h3 {
+    @apply text-[20px] leading-[130%] tracking-[1%] font-semibold text-neutral-200;
+  }
+
+  .h4 {
+    @apply text-[18px] leading-[140%] tracking-[1%] font-semibold text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+
+  .h5 {
+    @apply text-[16px] leading-[150%] tracking-[0.5%] font-medium text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+
+  .h6 {
+    @apply text-[14px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+
+  .h6-nav {
+    @apply text-[18px] leading-[150%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+
+  .h6-title {
+    @apply text-[14px] leading-[150%] tracking-[0%] font-normal transition delay-75;
+  }
+
+  .p1 {
+    @apply text-[14px] leading-[160%] tracking-[0%] font-normal text-neutral-300 hover:text-neutral-200 transition delay-75;
+  }
+
+  .p2 {
+    @apply text-[12px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
+  }
+
+  .p2-nav {
+    @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75;
+  }
+
+  .p2-txt {
+    @apply text-[16px] leading-[140%] tracking-[0.5%] font-normal transition delay-75 text-neutral-800;
+  }
+
+  .p3 {
+    @apply text-[10px] leading-[140%] tracking-[0.5%] font-light text-neutral-500 hover:text-neutral-400 transition delay-75;
+  }
+
+  .btn-primary {
+    @apply text-[14px] leading-[150%] tracking-[2%] font-normal;
+  }
+
   .btn-secondary {
     @apply text-[12px] leading-[150%] tracking-[1.5%] font-medium;
   }
@@ -432,10 +373,34 @@ li {
   }
 }
 
+/* Styles for navbar section */
+
+.nav-slide-up {
+  animation: nav-slide-up 0.4s ease-in;
+}
+
+@keyframes nav-slide-up {
+  0% {
+    opacity: 0;
+    top: -12px;
+    z-index: -10;
+  }
+  80% {
+    opacity: 0.25;
+    z-index: 0;
+  }
+  100% {
+    opacity: 1;
+    top: 24px;
+    z-index: 40;
+  }
+}
+
+
 /* Style for hero section text */
 
 .visibility-inc {
-  animation: visibility-inc 4s ease-in;
+  animation: visibility-inc 2s ease-in;
 }
 
 @keyframes visibility-inc {
@@ -450,17 +415,17 @@ li {
   }
 }
 
-@media (max-width: 640px) {
+/* @media (max-width: 640px) { */
   .hero-bg {
-    background-image: url("https://i.pinimg.com/736x/48/75/58/4875586ca2c0c984073f8074ce1e9111.jpg");
-    background-size: contain;
+    /* bg-[url(https://i.pinimg.com/736x/08/04/60/0804605bcfafec586fdda2766e4d138f.jpg)] */
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     overflow: hidden;
     display: hidden;
-    opacity: 0.6;
+    opacity: 0.1;
   }
-}
+/* } */
 
 /* Styles for technologies */
 

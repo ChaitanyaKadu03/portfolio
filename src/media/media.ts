@@ -3,7 +3,6 @@ import accessIcon from "./Icons/access.svg";
 import arrowIcon from "./Icons/arrow.svg";
 import crossIcon from "./Icons/cross.svg";
 import crossWhiteIcon from "./Icons/cross-white.svg";
-import githubBgIcon from "./github-bg.png";
 import githubIcon from "./Icons/github.svg";
 import linkIcon from "./Icons/link.svg";
 import linkedinIcon from "./Icons/linkedin.svg";
@@ -14,12 +13,11 @@ import webIcon from "./Icons/web.svg";
 import xIcon from "./Icons/x.svg";
 
 // Images
-import personalImg from "./personal-img.png";
-import footerImg from "./footer-img.png";
+const personalImg = "https://portfolio-web-db.s3.ap-south-1.amazonaws.com/images/personal-img.avif";
+const githubBgIcon = "https://portfolio-web-db.s3.ap-south-1.amazonaws.com/images/github-bg.avif";
 
 export {
   personalImg,
-  footerImg,
   accessIcon,
   arrowIcon,
   crossIcon,

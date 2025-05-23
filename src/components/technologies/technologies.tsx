@@ -1,6 +1,6 @@
 import { component$, Resource, type Signal, useOnWindow, $, useResource$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import TopSection from "../sub-components/top-section";
-import Dropdown, { Mode as DropdownMode } from "../sub-components/dropdown";
+import Dropdown from "../sub-components/dropdown";
 import Button, { EButtonMode } from "../sub-components/button";
 import { githubIcon } from "@media/media";
 import PopCard, { Mode } from "../sub-components/pop-card";
@@ -170,7 +170,6 @@ export default component$(() => {
                               width={100}
                               loading="lazy"
                               decoding="async"
-                              fetchPriority="high"
                               class="h-fit w-fit object-cover"
                             />
                           </div>

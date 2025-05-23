@@ -47,7 +47,7 @@ export default component$(() => {
 
         return (
           <section 
-            class={`flex flex-col gap-6 items-center relative my-[160px] max-sm:gap-4 max-sm:my-12 ${isSectionVisible.value ? "slide-in-animation" : "opacity-0 top-[8vh]"}`}
+            class={`flex flex-col gap-6 items-center relative my-[180px] max-sm:gap-4 max-sm:my-14 ${isSectionVisible.value ? "slide-in-animation" : "opacity-0 top-[8vh]"}`}
             ref={sectionRef}>
 
             <section class="grid grid-cols-2 gap-2 border-[0.2px] border-neutral-800 bg-[#22222235] rounded-md p-2 min-lg:min-w-[920px] max-w-[1120px] w-[92vw] h-[480px] box-border max-lg:flex max-lg:flex-col max-lg:w-[92vw] max-lg:h-fit max-lg:text-center">

@@ -6,11 +6,11 @@ export default component$(({ userInfo }: any) => {
       value={userInfo}
       onResolved={(userInfo: any) => (
         <>
-          <h6
+          <h2
             class="h6-title bg-gradient-to-r from-[#80bdff] to-[#005dbd] bg-clip-text text-transparent"
           >
             {userInfo.section}
-          </h6>
+          </h2>
           <h3
             class="h3"
           >

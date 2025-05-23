@@ -10,8 +10,7 @@ export default {
     extend: {
       fontFamily: {
         jost: ['Jost', 'sans-serif'],
-        gochiHand: ['Gochi Hand', 'sans-serif'],
-        mono: ['"Source Code Pro"', "monospace"]
+        gochiHand: ['Gochi Hand', 'sans-serif']
       },
       colors: {
         "neutral": {

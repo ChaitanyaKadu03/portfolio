@@ -32,7 +32,7 @@ export default component$(() => {
 
         return (
           <>
-            <section class="fixed top-[24px] left-1/2 min-sm:-translate-x-1/2 z-40 max-lg:w-[80vw] max-sm:top-0 max-sm:left-0 max-sm:w-full">
+            <section class="fixed top-[24px] left-1/2 min-sm:-translate-x-1/2 z-40 max-lg:w-[80vw] max-sm:top-0 max-sm:left-0 max-sm:w-full nav-slide-up">
               <nav class="flex items-center justify-between rounded-md p-2 w-[960px] mx-auto border-[0.6px] border-neutral-800 bg-[#0f0f0fdf] backdrop-blur max-sm:rounded-none max-sm:px-4 max-sm:py-4 max-sm:border-b-[0.6px] max-sm:border-0">
 
                 {/* The icon and first name */}
@@ -43,11 +43,12 @@ export default component$(() => {
                     src={personalImg}
                     alt="Logo"
                     decoding="async"
+                    fetchPriority="high"
                     height={100}
                     width={100}
                     class="w-10 h-10 object-cover rounded-md max-sm:w-8 max-sm:h-8"
                   />
-                  <li class="h6-nav font-[jost]">Chaitanya</li>
+                  <p class="h6-nav">Chaitanya</p>
                 </Link>
 
                 {/* Menu icon */}
@@ -66,11 +67,11 @@ export default component$(() => {
                 />
 
                 {/* Nav buttons */}
-                <ui class={`flex gap-4 ${showMenu.value ? "max-lg:absolute max-lg:flex max-lg:flex-col max-lg:items-center max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:top-16 max-lg:bg-[#181818] max-lg:w-full max-lg:h-fit max-lg:py-12" : "max-lg:hidden"}`}>
+                <div class={`flex gap-4 ${showMenu.value ? "max-lg:absolute max-lg:flex max-lg:flex-col max-lg:items-center max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:top-16 max-lg:bg-[#181818] max-lg:w-full max-lg:h-fit max-lg:py-12" : "max-lg:hidden"}`}>
                   {
                     Object.keys(navbarInfo).map((info: string) => {
                       return (
-                        <li
+                        <div
                           class="flex gap-2 items-center"
                           key={info}
                         >
@@ -88,11 +89,11 @@ export default component$(() => {
                           >
                             {navbarInfo[info].title}
                           </Link>
-                        </li>
+                        </div>
                       )
                     })
                   }
-                </ui>
+                </div>
 
                 {/* Contact button */}
                 <ContactButton showContact={showContact} />

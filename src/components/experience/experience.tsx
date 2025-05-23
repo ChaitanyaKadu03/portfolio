@@ -6,7 +6,7 @@ import {
   useSignal,
   useVisibleTask$,
 } from "@builder.io/qwik";
-import Dropdown, { Mode } from "../sub-components/dropdown";
+import Dropdown from "../sub-components/dropdown";
 import Pako from "pako";
 
 export default component$(() => {
@@ -48,7 +48,7 @@ export default component$(() => {
 
         return (
           <section 
-            class={`grid grid-cols-3 py-[120px] dot-bg max-w-[1560px] mx-auto max-xl:w-[96vw] max-xl:gap-0 max-lg:flex max-lg:flex-col max-lg:gap-8 max-lg:w-full ${isSectionVisible.value ? "slide-in-animation" : "opacity-0 top-[8vh]"}`}
+            class={`grid grid-cols-3 py-[120px] dot-bg max-w-[1560px] mx-auto max-xl:w-[96vw] max-xl:gap-0 max-lg:flex max-lg:flex-col max-lg:gap-8 max-lg:w-full max-md:py-14 ${isSectionVisible.value ? "slide-in-animation" : "opacity-0 top-[8vh]"}`}
             ref={sectionRef}
           >
             {/* Background gradient visible only for devices with width < 1024px */}
