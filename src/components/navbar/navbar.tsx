@@ -32,8 +32,8 @@ export default component$(() => {
 
         return (
           <>
-            <section class="fixed top-[24px] left-1/2 min-sm:-translate-x-1/2 z-40 max-lg:w-[80vw] max-sm:top-0 max-sm:left-0 max-sm:w-full nav-slide-up">
-              <nav class="flex items-center justify-between rounded-md p-2 w-[960px] mx-auto border-[0.6px] border-neutral-800 bg-[#0f0f0fdf] backdrop-blur max-sm:rounded-none max-sm:px-4 max-sm:py-4 max-sm:border-b-[0.6px] max-sm:border-0">
+            <section class="fixed top-[24px] left-1/2 min-sm:-translate-x-1/2 z-40  max-sm:top-0 max-sm:left-0 max-sm:w-full nav-slide-up">
+              <nav class="flex items-center justify-between rounded-md p-2 w-[960px] max-lg:w-[80vw] mx-auto border-[0.6px] border-neutral-800 bg-[#0f0f0fdf] backdrop-blur max-sm:rounded-none max-sm:px-4 max-sm:py-4 max-sm:border-b-[0.6px] max-sm:border-0">
 
                 {/* The icon and first name */}
                 <Link
