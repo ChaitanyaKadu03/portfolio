@@ -33,7 +33,7 @@ export default component$(() => {
         return (
           <>
             <section class="fixed top-[24px] left-1/2 min-sm:-translate-x-1/2 z-40  max-sm:top-0 max-sm:left-0 max-sm:w-full nav-slide-up">
-              <nav class="flex items-center justify-between rounded-md p-2 w-[960px] max-lg:w-[80vw] mx-auto border-[0.6px] border-neutral-800 bg-[#0f0f0fdf] backdrop-blur max-sm:rounded-none max-sm:px-4 max-sm:py-4 max-sm:border-b-[0.6px] max-sm:border-0">
+              <nav class="flex items-center justify-between rounded-md p-2 w-[960px] max-lg:w-[80vw] mx-auto border-[0.6px] border-neutral-800 bg-[#0f0f0fdf] backdrop-blur max-sm:rounded-none max-sm:px-4 max-sm:py-4 max-sm:border-b-[0.6px] max-sm:border-0 max-sm:w-full">
 
                 {/* The icon and first name */}
                 <Link
@@ -93,10 +93,28 @@ export default component$(() => {
                       )
                     })
                   }
+
+                  <section 
+                    class="min-lg:hidden"
+                    onClick$={()=>{
+                      const timer = setTimeout(()=>{
+                        showMenu.value = false;
+                      }, 200);
+
+                      return () => {
+                        clearTimeout(timer)
+                      }
+                    }}
+                  >
+                    <ContactButton showContact={showContact} />
+                  </section>
+
                 </div>
 
                 {/* Contact button */}
+              < div class="max-lg:hidden" >
                 <ContactButton showContact={showContact} />
+              </div >
 
               </nav>
             </section>
@@ -115,7 +133,6 @@ const ContactButton = component$(({ showContact }: { showContact: Signal<boolean
   return (
     <>
       {/* Contact button */}
-      < div class="max-lg:hidden" >
         <Button
           text={"Let's Connect"}
           isPrimary={true}
@@ -123,7 +140,6 @@ const ContactButton = component$(({ showContact }: { showContact: Signal<boolean
           showContact={showContact}
           icon={false}
         />
-      </div >
     </>
   )
 })

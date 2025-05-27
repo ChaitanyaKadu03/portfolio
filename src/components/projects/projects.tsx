@@ -124,7 +124,7 @@ export default component$(() => {
                           height={100}
                           width={100}
                           key={i}
-                          class={`h-12 w-12 object-cover bg-[#252525dc] rounded-md p-2 cursor-pointer max-lg:h-10 max-lg:w-10 max-sm:h-8 max-sm:w-8 ${i === 0 ? "rotate-180" : null}`}
+                          class={`h-12 w-12 object-cover bg-[#66666681] rounded-md p-2 cursor-pointer max-lg:h-10 max-lg:w-10 max-sm:h-8 max-sm:w-8 ${i === 0 ? "rotate-180" : null}`}
                           onClick$={() => {
                             imgOption.value === 3 ? imgOption.value = 1 : imgOption.value = imgOption.value + 1;
                           }}
@@ -137,12 +137,12 @@ export default component$(() => {
             </section>
 
             {/* Dots to navigate across multiple projects */}
-            <div class="flex gap-4">
+            <div class="flex gap-6 max-md:gap-4">
               {
                 Object.keys(projectsInfo).map((_, id) => {
                   return (
                     <span
-                      class={`${currOption.value === id ? "bg-neutral-300" : "bg-neutral-500 hover:bg-neutral-400"} w-3 h-3 rounded-full cursor-pointer`}
+                      class={`${currOption.value === id ? "bg-neutral-300" : "bg-neutral-500 hover:bg-neutral-400"} w-4 h-4 rounded-full cursor-pointer`}
                       key={id}
                       onClick$={() => {
                         currOption.value = id;

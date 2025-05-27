@@ -73,7 +73,7 @@ export default component$(() => {
                   Object.keys(techInfo.data[Object.keys(techInfo.data)[currOption.value]]).map((val: any, i: number) => {
                     return (
                       <div
-                        class="flex flex-col gap-2 items-center justify-center text-center bg-no-repeat bg-contain bg-center h-full w-fit border-[0.2px] border-neutral-800 rounded-md bg-[#22222240] py-10 px-6 overflow-hidden box-jump max-lg:py-4 max-lg:px-2"
+                        class="flex flex-col gap-2 items-center justify-center text-center bg-no-repeat bg-contain bg-center h-full w-full border-[0.2px] border-neutral-800 rounded-md bg-[#22222240] py-10 px-6 overflow-hidden box-jump max-lg:py-4 max-lg:px-2"
                         style={{ animationDelay: `${i > 2 ? (8 - i) : i}s` }}
                         key={i}
                       >

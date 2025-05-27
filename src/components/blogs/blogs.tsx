@@ -79,7 +79,7 @@ export default component$(() => {
                 {/* Each card */}
                 {dataArr.slice(0,4).map((item: any, i) => (
                   <div
-                    class="inline-block flex-shrink-0 w-full rounded-[10px] h-fit opacity-40 hover:opacity-100 transition-opacity transition-discrete duration-500 ease-in-out"
+                    class="inline-block flex-shrink-0 w-full rounded-[10px] h-fit min-lg:opacity-40 min-lg:hover:opacity-100 transition-opacity transition-discrete duration-500 ease-in-out"
                     key={i}
                   >
                     <div class="relative overflow-hidden h-[240px] rounded-t-[10px] max-lg:max-h-[200px] max-md:max-h-[120px]">

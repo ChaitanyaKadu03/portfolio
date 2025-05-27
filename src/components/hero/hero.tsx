@@ -37,7 +37,7 @@ export default component$(() => {
             <img
               src={isMobile.value ? "https://portfolio-web-db.s3.ap-south-1.amazonaws.com/images/hero-bg.avif" : "https://portfolio-web-db.s3.ap-south-1.amazonaws.com/images/hero-bg-large.avif"}
               alt="workspace img"
-              class="absolute w-full h-full object-cover -z-50 opacity-[0.06]"
+              class="absolute w-full h-full object-cover -z-50 opacity-[0.2]"
               decoding="async"
               loading="lazy"
               fetchPriority="high"

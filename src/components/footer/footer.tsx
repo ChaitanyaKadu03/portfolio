@@ -61,7 +61,7 @@ export default component$(() => {
                 <h2 class="h2">
                   {connectInfo.section}
                 </h2>
-                <p class="p2 line-clamp-3 max-md:line-clamp-4">
+                <p class="p2 line-clamp-3 max-md:line-clamp-none">
                   {connectInfo.paragraph}
                 </p>
               </div>

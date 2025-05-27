@@ -15,7 +15,7 @@ export default component$(({ userInfo, showContact, title, data, mode }: { showC
       value={userInfo}
       onResolved={() => (
         <>
-          <section class="fixed top-1/2 left-1/2 -translate-1/2 z-50 flex flex-col gap-4 items-center justify-center bg-[#181818] bg-opacity-50 transition-opacity w-fit h-fit py-8 px-12 rounded-md shadow-lg shadow-[#1818185e]">
+          <section class="fixed top-1/2 left-1/2 -translate-1/2 z-50 flex flex-col gap-4 items-center justify-center bg-[#181818] bg-opacity-50 transition-opacity w-fit h-fit py-8 px-12 rounded-md shadow-lg shadow-[#1818185e] max-md:py-5 max-md:px-8 max-md:w-[80%] max-md:max-w-[320px]">
             <div class="w-full flex items-center justify-between gap-4">
               <p class="h5">{title}</p>
               <img
@@ -49,14 +49,19 @@ export default component$(({ userInfo, showContact, title, data, mode }: { showC
                         width={100}
                         class="h-6 w-6"
                       />
-                      <p class="p1">{data[info].title}</p>
+                      <p class="p1 text-nowrap">{data[info].title}</p>
                     </Link>
                   )
                 })
               }
             </div>
           </section>
-          <span class="w-screen h-screen bg-[#14141485] fixed top-0 left-0 z-40" />
+          <span 
+            class="w-screen h-screen bg-[#14141485] fixed top-0 left-0 z-40" 
+            onClick$={()=>{
+              showContact.value = false;
+            }}
+          />
         </>
       )}
     />
