@@ -47,3 +47,6 @@ lerna-debug.log*
 # Yarn
 .yarn/*
 !.yarn/releases
+
+# AWS-lambda
+.serverless
